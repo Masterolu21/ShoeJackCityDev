@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/37f0bbe9beae439863b9ee070a9c370b/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/37f0bbe9beae439863b9ee070a9c370b/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/37f0bbe9beae439863b9ee070a9c370b/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/37f0bbe9beae439863b9ee070a9c370b/res/layout-v21/notification_action_tombstone.xml"
+    }
+]

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import SignInScreen from './App/screens/SignInScreen';
 import Account from './App/screens/Account';
 import Inventory from './App/screens/Inventory';
@@ -71,7 +71,7 @@ const AuthStack = createStackNavigator(
   }
 );
 
-export default createSwitchNavigator(
+export default createAppContainer(createSwitchNavigator(
   {
     AuthLoading: AppStack,
     App: AppStack,
@@ -82,4 +82,4 @@ export default createSwitchNavigator(
   {
     initialRouteName: 'AuthLoading'
   }
-);
+));

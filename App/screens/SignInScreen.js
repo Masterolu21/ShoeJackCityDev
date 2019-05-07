@@ -43,47 +43,35 @@ class SignInScreen extends React.Component {
   componentDidMount() {
     this.checkIfUserIsLoggedIn();
   }
+ signInWithFacebook = async () => {
 
-  onLoginFacebook = () => {
-    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
-      result => {
-        if (result.iscancelled) {
-          Alert.alert('Login Was Cancel');
-        } else {
-          console.log(
-            `Login Was Successfully${result.grantedPermissions.toString()}`
-          );
-        }
-      },
-      error => {
-        Alert.alert('Alert', FB_ALERT);
-      }
-    );
-  };
+   const appId = '646981779071349';
+    const permissions = ['public_profile', 'email'];  // Permissions required, consult Facebook docs
 
+     const {
+       type,
+       token,
+     } = await Expo.Facebook.logInWithReadPermissionsAsync(
+       appId,
+       {permissions}
+     );
 
-  //signIn = async () => {
+     switch (type) {
+       case 'success': {
+         await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);  // Set persistent auth state
+         const credential = firebase.auth.FacebookAuthProvider.credential(token);
+         const facebookProfileData = await firebase.auth().signInAndRetrieveDataWithCredential(credential);  // Sign in with Facebook credential
 
-    // GoogleSignin.configure({
-    //   scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
-    //   webClientId: '<FROM DEVELOPER CONSOLE>' // client ID of type WEB for your server (needed to verify user ID and offline access)
-    // });
+         // Do something with Facebook profile data
+         // OR you have subscribed to auth state change, authStateChange handler will process the profile data
 
-    // try {
-    //   await GoogleSignin.hasPlayServices();
-    //   const userInfo = await GoogleSignin.signIn();
-    //   this.setState({ userInfo });
-    // } catch (error) {
-    //   if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-    //     // user cancelled the login flow
-    //   } else if (error.code === statusCodes.IN_PROGRESS) {
-    //     // operation (f.e. sign in) is in progress already
-    //   } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-    //     // play services not available or outdated
-    //   } else {
-    //     // some other error happened
-    //   }
-    // }
+         return Promise.resolve({type: 'success'});
+       }
+       case 'cancel': {
+         return Promise.reject({type: 'cancel'});
+       }
+     }
+   }
 
   onSubmit = () => {
     const {
@@ -100,6 +88,8 @@ class SignInScreen extends React.Component {
     }
   };
 
+
+
 initAsync = async () => {
   try {
     await GoogleSignIn.initAsync({ clientId: '863761628819-q1laj1g0mia0pr6o5akfc66s1ia4qj6u.apps.googleusercontent.com' });
@@ -108,6 +98,84 @@ initAsync = async () => {
   }
 };
 
+isUserEqual = (googleUser, firebaseUser) => {
+    if (firebaseUser) {
+      const providerData = firebaseUser.providerData;
+      for (let i = 0; i < providerData.length; i++) {
+        if (providerData[i].providerId ===
+              firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
+            providerData[i].uid === googleUser.getBasicProfile().getId()
+            ) {
+          // We don't need to reauth the Firebase connection.
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+onSignIn = (googleUser) => {
+  console.log('Google Auth Response', googleUser);
+  // We need to register an Observer on Firebase Auth to make sure auth is initialized.
+  const unsubscribe = firebase
+  .auth()
+  .onAuthStateChanged((firebaseUser) => {
+    unsubscribe();
+    // Check if we are already signed-in Firebase with the correct user.
+    if (!this.isUserEqual(googleUser, firebaseUser)) {
+      // Build Firebase credential with the Google ID token.
+      const credential = firebase.auth.GoogleAuthProvider.credential(
+          googleUser.idToken,
+          googleUser.accessToken
+        );
+      // Sign in with credential from the Google user.
+      firebase
+      .auth()
+      .signInAndRetrieveDataWithCredential(credential)
+      .then((result) => {
+        console.log('User is signed in');
+        if(result.additionalUserInfo.isNewUser){
+
+
+        firebase
+        .database()
+        .ref(`/users/${result.user.uid}`)
+        .set({
+          gmail: result.user.email,
+          profile_picture: result.additionalUserInfo.profile.picture,
+          locale: result.additionalUserInfo.profile.locale,
+          first_name: result.additionalUserInfo.profile.given_name,
+          last_name: result.additionalUserInfo.profile.family_name,
+          created_at: Date.now()
+        })
+        .then(function(snapshot) {
+
+        });
+      } else {
+        firebase
+        .database()
+        .ref(`/users/${result.user.uid}`)
+        .update({
+          last_logged_in: Date.now()
+        });
+      }
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
+        // ...
+      });
+    } else {
+      console.log('User already signed-in Firebase.');
+      }
+    },
+  );
+};
   signInWithGoogleAsync = async () => {
     try {
       const result = await Expo.Google.logInAsync({
@@ -117,7 +185,8 @@ initAsync = async () => {
         scopes: ['profile', 'email'],
       });
 
-      if (result.type === 'scuccess') {
+      if (result.type === 'success') {
+        this.onSignIn(result);
         return result.accessToken;
       }
         return { cancelled: true };
@@ -195,7 +264,7 @@ style={[commonStyles.alignSelfcenter, {
                 commonStyles.alignSelfcenter,
 
                 {
-                  backgroundColor: '#000000',
+                  backgroundColor: '#FFFFFF',
                   width: width * 0.9
                 }
               ]}
@@ -213,7 +282,7 @@ style={[commonStyles.alignSelfcenter, {
         </TouchableOpacity>
 
         <View style={[commonStyles.mt20]}>
-          <TouchableOpacity onPress={this.onLoginFacebook}>
+          <TouchableOpacity onPress={() => this.signInWithFacebook()}>
             <View
               style={[
                 commonStyles.fbbutton,
@@ -278,7 +347,7 @@ style={[commonStyles.alignSelfcenter, {
                 commonStyles.alignSelfcenter,
 
                 {
-                  backgroundColor: '#000000',
+                  backgroundColor: '#FFFFFF',
                   width: width * 0.9
                 }
               ]}
@@ -297,7 +366,7 @@ style={[commonStyles.alignSelfcenter, {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#000000',
     marginBottom: 20
   },
   TextInput: {
@@ -313,7 +382,7 @@ const styles = StyleSheet.create({
   logintextbutton: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#000000'
+    color: '#FFFFFF'
   },
   buttonText: {
     fontSize: 16,

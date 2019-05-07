@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>3167A2C6-4F2F-405A-8B01-11EEB90BD83E</key>
+		<key>3AC6D35B-D904-476B-B375-C2DF79B0A527</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,9 +15,9 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>3167A2C6-4F2F-405A-8B01-11EEB90BD83E.xcactivitylog</string>
+			<string>3AC6D35B-D904-476B-B375-C2DF79B0A527.xcactivitylog</string>
 			<key>highLevelStatus</key>
-			<string>W</string>
+			<string>E</string>
 			<key>schemeIdentifier-containerName</key>
 			<string>ShoeJackCity project</string>
 			<key>schemeIdentifier-schemeName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>577549065.99973798</real>
+			<real>578691626.92486799</real>
 			<key>timeStoppedRecording</key>
-			<real>577549073.67315102</real>
+			<real>578691635.66908896</real>
 			<key>title</key>
 			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>3167A2C6-4F2F-405A-8B01-11EEB90BD83E</string>
+			<string>3AC6D35B-D904-476B-B375-C2DF79B0A527</string>
 		</dict>
-		<key>567C0059-3F66-45EA-AD8D-AC3FD415D579</key>
+		<key>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,9 +44,9 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>567C0059-3F66-45EA-AD8D-AC3FD415D579.xcactivitylog</string>
+			<string>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F.xcactivitylog</string>
 			<key>highLevelStatus</key>
-			<string>W</string>
+			<string>E</string>
 			<key>schemeIdentifier-containerName</key>
 			<string>ShoeJackCity project</string>
 			<key>schemeIdentifier-schemeName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>577924585.83314705</real>
+			<real>578692132.88967705</real>
 			<key>timeStoppedRecording</key>
-			<real>577924612.77837002</real>
+			<real>578692138.56716096</real>
 			<key>title</key>
 			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>567C0059-3F66-45EA-AD8D-AC3FD415D579</string>
+			<string>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F</string>
 		</dict>
 	</dict>
 </dict>

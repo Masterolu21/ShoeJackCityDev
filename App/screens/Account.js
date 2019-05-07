@@ -38,7 +38,7 @@ class Account extends React.Component {
       navigation: { navigate }
     } = this.props;
     return (
-      <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
+      <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
         <View
 style={[commonStyles.alignSelfcenter, {
             ...ifIphoneX(

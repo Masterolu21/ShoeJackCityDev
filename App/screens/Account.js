@@ -3,6 +3,7 @@ import { Icon } from 'native-base';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { commonStyles } from './styles/styles';
 import Footer from '../Components/Footer';
+import { Header } from '../Components/Header';
 import { INVENTORY, SETTING } from '../utils/constants';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 
@@ -39,18 +40,7 @@ class Account extends React.Component {
     } = this.props;
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
-        <View
-style={[commonStyles.alignSelfcenter, {
-            ...ifIphoneX(
-              {
-                marginTop: 50
-              },
-              {
-                marginTop: 30
-              }
-            )
-          }]}
-        >
+      <Header>
           <Text
             style={[
               styles.TextColor,
@@ -60,7 +50,7 @@ style={[commonStyles.alignSelfcenter, {
           >
             My Account
           </Text>
-        </View>
+        </Header>
         <View style={[commonStyles.alignSelfcenter, commonStyles.mt20]} />
         <View style={[commonStyles.alignSelfcenter, commonStyles.mt20]}>
           <Text

@@ -8,14 +8,14 @@
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
-  "babel": {
+  "jest": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
-      ],
-      "plugins": [
-      "@babel/plugin-proposal-class-properties",
-      ]
+    ],
+"plugins": [
+"@babel/plugin-proposal-class-properties",
+]
   },
   "dependencies": {
     "@babel/core": "^7.0.1",

@@ -2,8 +2,7 @@ import React from 'react';
 import { Icon } from 'native-base';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { commonStyles } from './styles/styles';
-import Footer from '../Components/Footer';
-import { Header } from '../Components/Header';
+import Footer from '/Components/Footer';
 import { INVENTORY, SETTING } from '../utils/constants';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 

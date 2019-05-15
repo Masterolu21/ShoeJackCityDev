@@ -14,13 +14,10 @@
       "@babel/preset-react"
       ],
       "plugins": [
-      "@babel/plugin-proposal-class-properties",
+      
       ]
   },
   "dependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
     "@expo/samples": "2.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
@@ -43,7 +40,6 @@
     "react-navigation": "^3.9.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

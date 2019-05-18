@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-Icon,
 Right,
 Header,
 Button,
@@ -9,6 +8,7 @@ List,
 ListItem,
 Body,
 } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import {
 View,
 Text,

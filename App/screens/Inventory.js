@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon, Badge } from 'native-base';
+import { Badge } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import {
   View,
   Text,

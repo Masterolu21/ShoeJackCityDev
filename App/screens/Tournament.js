@@ -9,7 +9,7 @@ import {
   FlatList
 } from 'react-native';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
-import { Icon, } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { commonStyles } from './styles/styles';
 import image from '../assets/Images/AF1OW_Volt.png';
 import Footer from '../Components/Footer';

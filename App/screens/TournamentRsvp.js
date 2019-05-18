@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Dimensions, TouchableOpacity, Image } from 'react-native';
-import { Icon } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import Rating from 'react-native-easy-rating';
 import { commonStyles } from './styles/styles';
 import image from '../assets/Images/AF1OW_Volt.png';

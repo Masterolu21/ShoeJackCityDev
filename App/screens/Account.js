@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { commonStyles } from './styles/styles';
 import Footer from '../Components/Footer';

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Icon } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { commonStyles } from './styles/styles';
-import Footer from '/Components/Footer';
+import Footer from '../Components/Footer';
 import { INVENTORY, SETTING } from '../utils/constants';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 
@@ -39,7 +39,18 @@ class Account extends React.Component {
     } = this.props;
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
-      <Header>
+        <View
+style={[commonStyles.alignSelfcenter, {
+            ...ifIphoneX(
+              {
+                marginTop: 50
+              },
+              {
+                marginTop: 30
+              }
+            )
+          }]}
+        >
           <Text
             style={[
               styles.TextColor,
@@ -49,7 +60,7 @@ class Account extends React.Component {
           >
             My Account
           </Text>
-        </Header>
+        </View>
         <View style={[commonStyles.alignSelfcenter, commonStyles.mt20]} />
         <View style={[commonStyles.alignSelfcenter, commonStyles.mt20]}>
           <Text

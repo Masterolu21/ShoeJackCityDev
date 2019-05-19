@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Icon, Footer, FooterTab, Button } from 'native-base';
+import { Footer, FooterTab, Button } from 'native-base';
+import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { commonStyles } from '../../screens/styles/styles';
 import { ACCOUNT, TOURNAMENT, SHOP, GAME } from '../../utils/constants';
 

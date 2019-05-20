@@ -180,7 +180,9 @@ class SignInScreen extends React.Component {
             const result = await Expo.Google.logInAsync({
                 //androidClientId: YOUR_CLIENT_ID_HERE,
                 behavior: 'web',
+                clientId: '863761628819-q1laj1g0mia0pr6o5akfc66s1ia4qj6u.apps.googleusercontent.com',
                 iosClientId: '863761628819-q1laj1g0mia0pr6o5akfc66s1ia4qj6u.apps.googleusercontent.com',
+                androidClientId: '863761628819-q1laj1g0mia0pr6o5akfc66s1ia4qj6u.apps.googleusercontent.com',
                 scopes: ['profile', 'email'],
             });
 

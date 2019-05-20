@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 4232,
   "expoServerNgrokUrl": "https://hh-3pv.andrei0807.shoejackcitydev.exp.direct",
   "packagerNgrokUrl": "https://packager.hh-3pv.andrei0807.shoejackcitydev.exp.direct",
-  "ngrokPid": 5893
+  "ngrokPid": 4257
 }

@@ -17,6 +17,9 @@ import {Google} from 'expo';
 import InputText from '../Components/InputText';
 import {commonStyles} from './styles/styles';
 import image from '../assets/Images/ShoeJackCityLogo.png';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as userActions from '../reducers/user/Actions';
 
 // import { GoogleSignin, statusCodes } from 'react-native-google-signin';
 import {
@@ -133,9 +136,9 @@ class SignInScreen extends React.Component {
                             .signInAndRetrieveDataWithCredential(credential)
                             .then((result) => {
                                 console.log('User is signed in');
+                                this.props.setUserID(result.user.uid);
+                                this.props.setUserEmail(result.user.email);
                                 if (result.additionalUserInfo.isNewUser) {
-
-
                                     firebase
                                         .database()
                                         .ref(`/users/${result.user.uid}`)
@@ -148,7 +151,6 @@ class SignInScreen extends React.Component {
                                             created_at: Date.now()
                                         })
                                         .then(function (snapshot) {
-
                                         });
                                 } else {
                                     firebase
@@ -400,4 +402,18 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SignInScreen;
+
+function mapStateToProps(state, ownProps) {
+    return {
+        user: state.user
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setUserID: bindActionCreators(userActions.setUserID, dispatch),
+        setUserEmail: bindActionCreators(userActions.setUserEmail, dispatch),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInScreen);

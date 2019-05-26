@@ -1,5 +1,6 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
 import SignInScreen from './App/screens/SignInScreen';
 import Account from './App/screens/Account';
 import Inventory from './App/screens/Inventory';

@@ -5,6 +5,9 @@ import { commonStyles } from './styles/styles';
 import Footer from '../Components/Footer';
 import { INVENTORY, SETTING } from '../utils/constants';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as userActions from '../reducers/user/Actions';
 
 
 class Account extends React.Component {
@@ -26,7 +29,10 @@ class Account extends React.Component {
         },
         {
           text: 'OK',
-          onPress: () => this.props.navigation.navigate('SignInScreen')
+          onPress: () => {
+              this.props.setUserID('');
+              this.props.navigation.navigate('SignInScreen');
+          }
         }
       ],
       { cancelable: false }
@@ -152,4 +158,16 @@ const styles = StyleSheet.create({
 
 });
 
-export default Account;
+function mapStateToProps(state, ownProps) {
+    return {
+        user: state.user
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setUserID: bindActionCreators(userActions.setUserID, dispatch),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account);

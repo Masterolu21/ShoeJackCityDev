@@ -27,6 +27,7 @@ import Modal from 'react-native-modal';
 import firebase from 'firebase';
 
 class Settings extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {

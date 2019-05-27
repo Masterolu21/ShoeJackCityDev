@@ -1,6 +1,5 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
-import { connect } from 'react-redux';
 import SignInScreen from './App/screens/SignInScreen';
 import Account from './App/screens/Account';
 import Inventory from './App/screens/Inventory';
@@ -11,6 +10,9 @@ import Tournament from './App/screens/Tournament';
 import TournamentRsvp from './App/screens/TournamentRsvp';
 import Shop from './App/screens/Shop';
 import Game from './App/screens/Game';
+import EditBuyingInfo from './App/screens/EditBuyingInfo';
+import EditSellingInfo from './App/screens/EditSellingInfo';
+import EditPayoutInfo from './App/screens/EditPayoutInfo';
 
 const routes = {
   SignInScreen: {
@@ -42,7 +44,7 @@ const routes = {
   },
   Inventory: {
     screen: Inventory
-  }
+  },
 };
 
 class AuthLoadingScreen extends React.Component {
@@ -51,13 +53,36 @@ class AuthLoadingScreen extends React.Component {
   }
 }
 
-const AppStack = createStackNavigator(routes, {
+const AppMainStack = createStackNavigator(routes, {
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false
   },
-  initialRouteName: 'SignInScreen'
+  initialRouteName: 'SignInScreen',
 });
+
+const AppStack = createStackNavigator(
+    {
+      AppMainStack: AppMainStack,
+      EditBuyingInfo: {
+        screen: EditBuyingInfo
+      },
+      EditSellingInfo: {
+        screen: EditSellingInfo
+      },
+      EditPayoutInfo: {
+        screen: EditPayoutInfo
+      },
+    },
+    {
+      mode: 'modal',
+      headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false
+      },
+    }
+);
+
 const AuthStack = createStackNavigator(
   {
     SignInScreen: {
@@ -76,11 +101,9 @@ export default createAppContainer(createSwitchNavigator(
   {
     AuthLoading: AppStack,
     App: AppStack,
-    Auth: AuthStack
-    // AuthLoading: AppStack,
-    // Auth: AuthStack
+    Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading'
+    initialRouteName: 'AuthLoading',
   }
 ));

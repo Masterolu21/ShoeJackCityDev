@@ -23,7 +23,6 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../reducers/user/Actions';
 import {MaterialIcons as Icon} from '@expo/vector-icons';
 import {commonStyles} from './styles/styles';
-import Modal from 'react-native-modal';
 import firebase from 'firebase';
 
 class Settings extends React.Component {
@@ -32,10 +31,6 @@ class Settings extends React.Component {
         super(props);
         this.state = {
             switchs: true,
-            isModalVisible: false,
-            modalType: '',
-            modalTitle: '',
-            modalText: '',
         };
     }
 
@@ -65,86 +60,13 @@ class Settings extends React.Component {
         this.setState(newState);
     }
 
-    // show modal to edit user infomation
-    onShowModal(type) {
-        switch (type) {
-            case 'username':
-                this.setState({
-                    isModalVisible: true,
-                    modalType: type,
-                    modalTitle: 'USER NAME',
-                    modalText: this.props.user.username
-                });
-                break;
-            case 'billing':
-                this.setState({
-                    isModalVisible: true,
-                    modalType: type,
-                    modalTitle: 'BILLING ADDRESS',
-                    modalText: this.props.user.billing
-                });
-                break;
-            case 'shipping':
-                this.setState({
-                    isModalVisible: true,
-                    modalType: type,
-                    modalTitle: 'SHIPPING ADDRESS',
-                    modalText: this.props.user.shipping
-                });
-                break;
-            case 'selling':
-                this.setState({
-                    isModalVisible: true,
-                    modalType: type,
-                    modalTitle: 'SELLING INFORMATION',
-                    modalText: this.props.user.selling
-                });
-                break;
-            case 'payout':
-                this.setState({
-                    isModalVisible: true,
-                    modalType: type,
-                    modalTitle: 'PAYOUT INFOMATION',
-                    modalText: this.props.user.payout
-                });
-                break;
-            default:
-                break;
-        }
-    }
-
-    //close modal without saving
-    onModalCancel() {
-        this.setState({isModalVisible: false});
-    }
-
-    // save userinfo to redux and firebase
-    onModalSave() {
-        this.setState({isModalVisible: false});
-        // update data in firestore
-        firebase.database().ref(`/users/${this.props.user.id}`).update({
-            [this.state.modalType]: this.state.modalText,
-        });
-
-        //update data in redux
-        switch (this.state.modalType) {
-            case 'username':
-                this.props.setUserName(this.state.modalText);
-                break;
-            case 'billing':
-                this.props.setBilling(this.state.modalText);
-                break;
-            case 'shipping':
-                this.props.setShipping(this.state.modalText);
-                break;
-            case 'selling':
-                this.props.setSelling(this.state.modalText);
-                break;
-            case 'payout':
-                this.props.setPayout(this.state.modalText);
-                break;
-            default:
-                break;
+    onEditInfo(type) {
+        if(type === "buying") {
+            this.props.navigation.navigate('EditBuyingInfo');
+        } else if(type === 'selling') {
+            this.props.navigation.navigate('EditSellingInfo');
+        } else if(type === 'payout') {
+            this.props.navigation.navigate('EditPayoutInfo');
         }
     }
 
@@ -218,12 +140,7 @@ class Settings extends React.Component {
                                     USER INFO
                                 </Text>
                                 <Text style={[commonStyles.textBold]}>USER NAME</Text>
-                                <View style={styles.itemContainer}>
-                                    <Text style={{width: 150}}>{this.props.user.username}</Text>
-                                    <TouchableOpacity style={styles.editButton} onPress={() => this.onShowModal('username')}>
-                                        <Icon name={'edit'} size={18} color={'#008b00'}/>
-                                    </TouchableOpacity>
-                                </View>
+                                <Text style={{width: 150}}>{this.props.user.username}</Text>
                                 <Text style={[commonStyles.textBold, commonStyles.mt5]}>
                                     EMAIL ADDRESS
                                 </Text>
@@ -267,31 +184,21 @@ class Settings extends React.Component {
                                     BUYING INFO
                                 </Text>
                                 <Text style={[commonStyles.textBold]}>BILLING</Text>
-                                <View style={styles.itemContainer}>
-                                    <Text style={{width: 150}}>{this.props.user.billing}</Text>
-                                    <TouchableOpacity style={styles.editButton} onPress={() => this.onShowModal('billing')}>
-                                        <Icon name={'edit'} size={18} color={'#008b00'}/>
-                                    </TouchableOpacity>
-                                </View>
+                                <Text style={{width: 150}}>{this.props.user.billing}</Text>
                                 <Text style={[commonStyles.textBold, commonStyles.mt5]}>
                                     SHIPPING
                                 </Text>
-                                <View style={styles.itemContainer}>
-                                    <Text style={{width: 150}}>{this.props.user.shipping}</Text>
-                                    <TouchableOpacity style={styles.editButton} onPress={() => this.onShowModal('shipping')}>
-                                        <Icon name={'edit'} size={18} color={'#008b00'}/>
-                                    </TouchableOpacity>
-                                </View>
+                                <Text style={{width: 150}}>{this.props.user.shipping}</Text>
                             </View>
                             </Body>
-                            {/*<Right><Body>*/}
-                            {/*<View style={{right: -20}}>*/}
-                                {/*<Text style={[commonStyles.font14, {color: 'green'}]}>*/}
-                                    {/*Edit*/}
-                                {/*</Text>*/}
-                            {/*</View>*/}
-                            {/*</Body>*/}
-                            {/*</Right>*/}
+                            <Right><Body>
+                            <TouchableOpacity style={{right: -20}} onPress={() => this.onEditInfo('buying')}>
+                                <Text style={[commonStyles.font14, {color: 'green'}]}>
+                                    Edit
+                                </Text>
+                            </TouchableOpacity>
+                            </Body>
+                            </Right>
                         </ListItem>
                         <ListItem>
                             <Body style={[commonStyles.row]}>
@@ -311,26 +218,21 @@ class Settings extends React.Component {
                                     SELLING INFO
                                 </Text>
                                 <Text style={[commonStyles.textBold]}>PAYMENT</Text>
-                                <View style={styles.itemContainer}>
-                                    <View style={[commonStyles.row]}>
-                                        <Text style={[commonStyles.textBold]}>VISA</Text>
-                                        <Text>{''} ending in {this.props.user.selling}</Text>
-                                    </View>
-                                    <TouchableOpacity style={styles.editButton} onPress={() => this.onShowModal('selling')}>
-                                        <Icon name={'edit'} size={18} color={'#008b00'}/>
-                                    </TouchableOpacity>
+                                <View style={[commonStyles.row]}>
+                                    <Text style={[commonStyles.textBold]}>VISA</Text>
+                                    <Text>{''} ending in {this.props.user.selling}</Text>
                                 </View>
                             </View>
                             </Body>
-                            {/*<Right>*/}
-                                {/*<Body>*/}
-                                {/*<View style={{right: -20}}>*/}
-                                    {/*<Text style={[commonStyles.font14, {color: 'green'}]}>*/}
-                                        {/*Edit*/}
-                                    {/*</Text>*/}
-                                {/*</View>*/}
-                                {/*</Body>*/}
-                            {/*</Right>*/}
+                            <Right>
+                                <Body>
+                                <TouchableOpacity style={{right: -20}} onPress={() => this.onEditInfo('selling')}>
+                                    <Text style={[commonStyles.font14, {color: 'green'}]}>
+                                        Edit
+                                    </Text>
+                                </TouchableOpacity>
+                                </Body>
+                            </Right>
                         </ListItem>
                         <ListItem>
                             <Body style={[commonStyles.row]}>
@@ -350,40 +252,21 @@ class Settings extends React.Component {
                                     PAYOUT INFO
                                 </Text>
                                 <Text style={{fontWeight: 'bold'}}>PAYOUT</Text>
-                                <View style={styles.itemContainer}>
-                                    <Text style={{width: 150}}>{this.props.user.payout}</Text>
-                                    <TouchableOpacity style={styles.editButton} onPress={() => this.onShowModal('payout')}>
-                                        <Icon name={'edit'} size={18} color={'#008b00'}/>
-                                    </TouchableOpacity>
-                                </View>
+                                <Text style={{width: 150}}>{this.props.user.payout}</Text>
                             </View>
                             </Body>
-                            {/*<Right>*/}
-                                {/*<Body>*/}
-                                {/*<View style={[commonStyles.right20]}>*/}
-                                    {/*<Text style={[commonStyles.font14, {color: 'green'}]}>*/}
-                                        {/*Edit*/}
-                                    {/*</Text>*/}
-                                {/*</View>*/}
-                                {/*</Body>*/}
-                            {/*</Right>*/}
+                            <Right>
+                                <Body>
+                                <TouchableOpacity style={[commonStyles.right20]} onPress={() => this.onEditInfo('payout')}>
+                                    <Text style={[commonStyles.font14, {color: 'green'}]}>
+                                        Edit
+                                    </Text>
+                                </TouchableOpacity>
+                                </Body>
+                            </Right>
                         </ListItem>
                     </List>
                 </ScrollView>
-                <Modal isVisible={this.state.isModalVisible}>
-                    <View style={styles.modal}>
-                        <Text style={styles.modalTitleText}>{this.state.modalTitle}</Text>
-                        <TextInput value={this.state.modalText} onChangeText={(text) => this.setState({modalText: text})} style={styles.modalTextInput}/>
-                        <View style={styles.modalBottomContainer}>
-                            <TouchableOpacity style={styles.modalButton} onPress={() => this.onModalSave()}>
-                                <Text style={styles.modalButtonText}>Save</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={[styles.modalButton, {backgroundColor: '#bdbdbd'}]} onPress={() => this.onModalCancel()}>
-                                <Text style={[styles.modalButtonText, {color: 'black'}]}>Cancel</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </Modal>
             </View>
         );
     }

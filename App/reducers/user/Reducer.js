@@ -1,15 +1,13 @@
-
-import update from 'immutability-helper';
 import * as types from './ActionTypes';
 
 const initialState = {
     id: '',
     email: '',
-    username: ' ',
-    billing: ' ',
+    username: '',
+    billing: '',
     shipping: '' ,
-    selling: ' ',
-    payout: ' ',
+    selling: '',
+    payout: '',
 };
 
 export default function user(state = initialState, action = {}) {

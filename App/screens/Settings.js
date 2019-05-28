@@ -18,12 +18,11 @@ import {
     ListItem,
     Body,
 } from 'native-base';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../reducers/user/Actions';
 import {MaterialIcons as Icon} from '@expo/vector-icons';
 import {commonStyles} from './styles/styles';
-import firebase from 'firebase';
 
 class Settings extends React.Component {
 
@@ -61,11 +60,13 @@ class Settings extends React.Component {
     }
 
     onEditInfo(type) {
-        if(type === "buying") {
+        if (type === 'userinfo') {
+            this.props.navigation.navigate('EditUserInfo');
+        } else if (type === "buying") {
             this.props.navigation.navigate('EditBuyingInfo');
-        } else if(type === 'selling') {
+        } else if (type === 'selling') {
             this.props.navigation.navigate('EditSellingInfo');
-        } else if(type === 'payout') {
+        } else if (type === 'payout') {
             this.props.navigation.navigate('EditPayoutInfo');
         }
     }
@@ -165,6 +166,15 @@ class Settings extends React.Component {
                                 </TouchableOpacity>
                             </View>
                             </Body>
+
+                            <Right><Body>
+                            <TouchableOpacity style={{right: -20}} onPress={() => this.onEditInfo('userinfo')}>
+                                <Text style={[commonStyles.font14, {color: 'green'}]}>
+                                    Edit
+                                </Text>
+                            </TouchableOpacity>
+                            </Body>
+                            </Right>
                         </ListItem>
                         <ListItem>
                             <Body style={[commonStyles.row]}>
@@ -278,12 +288,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    editButton: {
-
-    },
-    editIcon: {
-
-    },
+    editButton: {},
+    editIcon: {},
     modal: {
         padding: 20,
         borderRadius: 10,

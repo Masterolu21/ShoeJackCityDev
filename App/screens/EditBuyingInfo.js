@@ -22,6 +22,7 @@ class EditBuyingInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            //get info from redux
             billing: this.props.user.billing,
             shipping: this.props.user.shipping,
         }
@@ -32,6 +33,7 @@ class EditBuyingInfo extends Component {
             billing: this.state.billing,
             shipping: this.state.shipping
         });
+        //call redux action to save buying information
         this.props.setBilling(this.state.billing);
         this.props.setShipping(this.state.shipping);
         this.props.navigation.goBack();
@@ -162,4 +164,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+// Connect the screens to Redux
 export default connect(mapStateToProps, mapDispatchToProps)(EditBuyingInfo);

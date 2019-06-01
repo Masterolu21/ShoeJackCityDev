@@ -7,11 +7,15 @@ import * as reducers from "./index";
 const persistConfig = {
     key: 'root',
     storage,
-}
+};
+//create store
 export default function configureStore() {
+    // set reducer
     var reducer = combineReducers(reducers);
+    // set persist config and data
     var persistedReducer = persistReducer(persistConfig, reducer)
     var createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+    //create redux store
     var store = createStoreWithMiddleware(persistedReducer);
     var persistor = persistStore(store);
     return store;

@@ -148,6 +148,7 @@ class SignInScreen extends React.Component {
                                             locale: result.additionalUserInfo.profile.locale,
                                             first_name: result.additionalUserInfo.profile.given_name,
                                             last_name: result.additionalUserInfo.profile.family_name,
+                                            username: result.additionalUserInfo.profile.given_name + ' ' + result.additionalUserInfo.profile.family_name,
                                             created_at: Date.now()
                                         })
                                         .then(function (snapshot) {

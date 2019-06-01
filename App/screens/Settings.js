@@ -326,12 +326,17 @@ const styles = StyleSheet.create({
     }
 });
 
+//set redux value for this screen
+// when use redux value, use "this.props.user."
+
 function mapStateToProps(state, ownProps) {
     return {
         user: state.user
     };
 }
 
+//set action function for this screen
+// Please call function like "this.props.setUserID('')"
 function mapDispatchToProps(dispatch) {
     return {
         setUserID: bindActionCreators(userActions.setUserID, dispatch),
@@ -343,4 +348,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+// Connect the screens to Redux
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

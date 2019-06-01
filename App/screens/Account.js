@@ -76,7 +76,7 @@ style={[commonStyles.alignSelfcenter, {
               commonStyles.textBold
             ]}
           >
-            Hussnain_sarwar
+            {this.props.user.username}
           </Text>
         </View>
         <View style={[commonStyles.flex1, commonStyles.mt20]}>

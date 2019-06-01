@@ -22,6 +22,7 @@ class EditPayoutInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            //get info from redux
             payout: this.props.user.payout,
         }
     }
@@ -30,6 +31,7 @@ class EditPayoutInfo extends Component {
         firebase.database().ref(`/users/${this.props.user.id}`).update({
             payout: this.state.payout,
         });
+        //call redux action to save payout information
         this.props.setPayout(this.state.payout);
         this.props.navigation.goBack();
     }

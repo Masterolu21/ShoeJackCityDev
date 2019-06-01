@@ -21,6 +21,7 @@ class EditUserInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            //get username from redux
             username: this.props.user.username,
         }
     }
@@ -29,6 +30,7 @@ class EditUserInfo extends Component {
         firebase.database().ref(`/users/${this.props.user.id}`).update({
             username: this.state.username,
         });
+        //call redux action to save user information
         this.props.setUserName(this.state.username);
         this.props.navigation.goBack();
     }

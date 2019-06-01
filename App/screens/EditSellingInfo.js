@@ -22,6 +22,7 @@ class EditSellingInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            //get info from redux
             selling: this.props.user.selling,
         }
     }
@@ -30,6 +31,7 @@ class EditSellingInfo extends Component {
         firebase.database().ref(`/users/${this.props.user.id}`).update({
             selling: this.state.selling,
         });
+        //call redux action to save selling information
         this.props.setSelling(this.state.selling);
         this.props.navigation.goBack();
     }

@@ -1,5 +1,6 @@
 import * as types from './ActionTypes';
-
+// Please reference this link https://reactnavigation.org/docs/en/redux-integration.html
+//  define initial state for the redux store
 const initialState = {
     id: '',
     email: '',
@@ -10,6 +11,7 @@ const initialState = {
     payout: '',
 };
 
+// define reducers
 export default function user(state = initialState, action = {}) {
     switch (action.type) {
         case types.USER_ID:
@@ -31,7 +33,7 @@ export default function user(state = initialState, action = {}) {
     }
 }
 
-//Reducer Functions
+//change redux's value
 function applyValue(state, action, field) {
     return {
         ...state,

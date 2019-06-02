@@ -158,11 +158,21 @@ const styles = StyleSheet.create({
 
 });
 
+//set redux value for this screen
+// when use redux value, use "this.props.user."
+// If you want to use stored value in redux, use "this.props.user.username" etc....
+// see 79 line
+// you can find available variable in reducers/user/Reducers.js
 function mapStateToProps(state, ownProps) {
     return {
         user: state.user
     };
 }
+
+//set action function for this screen
+// Please call function like "this.props.setUserID('')"
+// see 33 line
+// you can find function in reducers/user/Action.js file.
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -170,4 +180,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+// Connect the screens with Redux
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

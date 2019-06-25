@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/37f0bbe9beae439863b9ee070a9c370b/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]

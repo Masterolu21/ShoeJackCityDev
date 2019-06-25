@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>3AC6D35B-D904-476B-B375-C2DF79B0A527</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3AC6D35B-D904-476B-B375-C2DF79B0A527.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>ShoeJackCity project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ShoeJackCity</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>578691626.92486799</real>
+			<key>timeStoppedRecording</key>
+			<real>578691635.66908896</real>
+			<key>title</key>
+			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>3AC6D35B-D904-476B-B375-C2DF79B0A527</string>
+		</dict>
+		<key>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>ShoeJackCity project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ShoeJackCity</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>578692132.88967705</real>
+			<key>timeStoppedRecording</key>
+			<real>578692138.56716096</real>
+			<key>title</key>
+			<string>Building project ShoeJackCity with scheme ShoeJackCity and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>CE0F5890-6A8F-46A7-A4B9-3674006CBF2F</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

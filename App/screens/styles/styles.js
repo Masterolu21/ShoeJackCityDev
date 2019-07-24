@@ -107,6 +107,12 @@ export const commonStyles = {
     borderRadius: 5,
     paddingVertical: 5
   },
+  ShopAttack: {
+    width: 75,
+    backgroundColor: 'white',
+    borderRadius: 5,
+    paddingVertical: 5
+  },
   closeIcons: {
     width: 45,
     height: 45,
@@ -856,14 +862,13 @@ top:20
     borderWidth: 1.5
   },
   facebookbutton: {
-    width: 320,
+    width: 50,
+    height:50,
     backgroundColor: '#5054AE',
     paddingVertical: 10,
     marginBottom: 5,
-    borderRadius: 20,
+    borderRadius: 40,
     borderColor: 'black',
-    borderWidth: 1,
-    flexDirection: 'row'
   },
   inventrybutton: {
     width: 160,
@@ -898,26 +903,26 @@ top:20
     fontSize: 16,
     textAlign: 'center',
     color: '#5E6764',
-    fontFamily: 'Helvetica-Bold'
+    fontFamily: 'HelveticaNeue-Bold'
   },
   logintextbutton: {
     fontSize: 12,
     textAlign: 'center',
     color: '#d6d6e2',
-    fontFamily: 'Helvetica-Bold'
+    fontFamily: 'HelveticaNeue-Bold'
   },
   facebooktextbutton: {
-    fontSize: 12,
+    fontSize: 16,
     textAlign: 'center',
     color: 'white',
-    fontFamily: 'Helvetica-Bold'
+    fontFamily: 'HelveticaNeue-Bold'
   },
   googletextbutton: {
-    fontSize: 12,
+    fontSize: 16,
     textAlign: 'center',
     justifyContent: 'center',
     color: 'white',
-    fontFamily: 'Helvetica-Bold'
+    fontFamily: 'HelveticaNeue-Bold'
   },
   fbbutton: {
     width: 320,

@@ -277,7 +277,7 @@ class SignInScreen extends React.Component {
             <TouchableOpacity onPress={this.onSubmit}>
               <View
                 style={[
-                  commonStyles.loginbutton,
+                  styles.loginbutton,
                   commonStyles.alignSelfcenter,
 
                   {
@@ -285,7 +285,7 @@ class SignInScreen extends React.Component {
                   }
                 ]}
               >
-                <Text style={[commonStyles.logintextbutton]}>Sign In</Text>
+                <Text style={[styles.logintextbutton]}>Sign In</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -299,7 +299,7 @@ class SignInScreen extends React.Component {
                 <TouchableOpacity onPress={() => this.signInWithFacebook()}>
           <View
             style={[
-              commonStyles.facebookbutton,
+              styles.facebookbutton,
               commonStyles.alignSelfcenter,
 
               {
@@ -311,9 +311,9 @@ class SignInScreen extends React.Component {
               name="facebook-f"
               size={20}
               color={'white'}
-              style={[commonStyles.ml20, styles.mr40]}
+              style={[styles.IconStyle]}
           />
-            <Text style={[commonStyles.facebooktextbutton]}>LOG IN WITH FACEBOOK</Text>
+            <Text style={[commonStyles.facebooktextbutton]}>LOGIN WITH FACEBOOK</Text>
           </View>
         </TouchableOpacity>
 
@@ -323,7 +323,7 @@ class SignInScreen extends React.Component {
                     >
                     <View
                       style={[
-                        commonStyles.googlebutton,
+                        styles.googlebutton,
                         commonStyles.alignSelfcenter,
 
                         {
@@ -333,11 +333,11 @@ class SignInScreen extends React.Component {
                     >
                             <Icon
                                 name="google"
-                                size={20}
                                 color={'white'}
-                                style={[commonStyles.ml20, styles.mr40]}
+                                size={20}
+                                style={[styles.IconStyle]}
                             />
-                        <Text style={[commonStyles.googletextbutton]}>LOG IN WITH GOOGLE</Text>
+                        <Text style={[commonStyles.googletextbutton]}>LOGIN WITH GOOGLE</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -366,10 +366,19 @@ const styles = StyleSheet.create({
     ColorText: {
         color: '#BA55D3'
     },
+    loginbutton: {
+      width: 320,
+      backgroundColor: 'rgb(72, 244, 255)',
+      paddingVertical: 10,
+      marginBottom: 5,
+      borderRadius: 20
+    },
     logintextbutton: {
-        fontSize: 16,
-        textAlign: 'center',
-        color: '#FFFFFF'
+      fontSize: 16,
+      textAlign: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      fontFamily: 'Helvetica-Bold'
     },
     buttonText: {
         fontSize: 16,
@@ -378,14 +387,37 @@ const styles = StyleSheet.create({
         marginTop: 4
     },
     googlebutton: {
-        width: 320,
-        backgroundColor: '#5434E4',
-        paddingVertical: 8,
-        borderRadius: 10
+      width: 320,
+      backgroundColor: '#dc4e41',
+      paddingVertical: 10,
+      marginBottom: 5,
+      borderRadius: 20,
+      borderColor: 'black',
+      borderWidth: 1,
+      flexDirection: 'row'
     },
     mr40: {
       marginRight: 40
-    }
+    },
+    facebookbutton: {
+      width: 320,
+      height:40,
+      backgroundColor: '#5054AE',
+      paddingVertical: 10,
+      margin: 5,
+      borderRadius: 20,
+      borderColor: 'black',
+      borderWidth: 1,
+      alignItems: 'center',
+      flexDirection: 'row'
+    },
+    IconStyle: {
+  //  alignItems: 'center',
+    height: 20,
+    width: 20,
+    marginLeft:20,
+    marginRight: 5
+    },
 });
 
 

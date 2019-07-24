@@ -23,6 +23,8 @@ class ShopAttack extends React.Component {
     super(props);
     this.state = {
       isModalVisible: false,
+      clicks: 1,
+      show: true,
       items: [
         {
           type: 'abc',
@@ -62,6 +64,16 @@ class ShopAttack extends React.Component {
         }
       ]
     };
+  }
+
+  IncrementItem = () => {
+    this.setState({ clicks: this.state.clicks + 1 });
+  }
+  DecreaseItem = () => {
+    this.setState({ clicks: this.state.clicks - 1 });
+  }
+  ToggleClick = () => {
+    this.setState({ show: !this.state.show });
   }
 
   _toggleModal = () =>
@@ -234,7 +246,7 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                   RUNE BLAST
                 </Text>
                 <Text style={[commonStyles.font14, commonStyles.mb20]}>
-                  An that delivers swift slash attacks.
+                  A standard move that delivers swift slash attacks.
                   Damage: 100
                   MP: 50
                 </Text>

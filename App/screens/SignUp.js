@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Alert,
   Animated,
-  Easing
+  Easing,
+  StyleSheet
 } from 'react-native';
 import InputText from '../Components/InputText';
 import {commonStyles } from './styles/styles';
@@ -163,16 +164,16 @@ class SignUp extends React.Component {
           <TouchableOpacity onPress={this.onSubmit}>
             <View
               style={[
-                commonStyles.loginbutton,
+                styles.signUpButton,
                 commonStyles.alignSelfcenter,
 
                 {
                   backgroundColor: 'rgb(72, 244, 255)',
-                  width: width * 0.9
+                  width: width * 0.73
                 }
               ]}
             >
-              <Text style={[commonStyles.logintextbutton, commonStyles.white]}>
+              <Text style={[styles.signUpTextButton]}>
                 Sign Up
               </Text>
             </View>
@@ -197,5 +198,25 @@ class SignUp extends React.Component {
     );
   }
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#000000',
+    },
+    signUpButton: {
+      width: 320,
+      backgroundColor: 'rgb(72, 244, 255)',
+      paddingVertical: 10,
+      marginBottom: 5,
+      borderRadius: 20
+    },
+    signUpTextButton: {
+      fontSize: 16,
+      textAlign: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      fontFamily: 'Helvetica-Bold'
+    }
+  });
 
 export default SignUp;

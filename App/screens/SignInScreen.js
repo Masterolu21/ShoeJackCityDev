@@ -8,7 +8,8 @@ import {
     TouchableOpacity,
     Alert,
     Animated,
-    Easing
+    Easing,
+    TextInput
 } from 'react-native';
 import {FontAwesome as Icon} from '@expo/vector-icons';
 import FBSDK, {LoginManager} from 'react-native-fbsdk';
@@ -251,20 +252,35 @@ class SignInScreen extends React.Component {
                 >
                     <Animated.Image
                         resizeMode={'contain'}
-                        style={{ transform: [{rotate: spin}], width: 200, height: 200}}
+                        style={{ transform: [{rotate: spin}], width: 150, height: 150}}
                         source={image}
                     />
                 </View>
-                <View>
-                    <InputText
-                    style={[commonStyles.marginLeft20]}
+                <View style={[
+                  styles.mt20,
+                  styles.inputBox,
+                  {
+                    width: width * 0.73
+                  }
+                ]}>
+                    <TextInput
+                    style={styles.inputText}
                     icon="email"
                     placeholder="Email"
                     autoCapitalize="none"
                     value={this.state.email}
                     onChangeText={email => this.setState({ email })}
                     />
-                    <InputText
+                    </View>
+                    <View style={[
+                      styles.mt20,
+                      styles.inputBox,
+                      {
+                        width: width * 0.73
+                      }
+                    ]}>
+                    <TextInput
+                    style={styles.inputText}
                     icon="lock"
                     placeholder="Password"
                     autoCapitalize="none"
@@ -353,7 +369,7 @@ class SignInScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000000',
+        backgroundColor: '#FFFFFF',
     },
     TextInput: {
         marginTop: 20,
@@ -371,7 +387,35 @@ const styles = StyleSheet.create({
       backgroundColor: 'rgb(72, 244, 255)',
       paddingVertical: 10,
       marginBottom: 5,
-      borderRadius: 20
+      borderRadius: 20,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5,
+      shadowRadius: 5,
+      elevation: 20
+    },
+    inputBox: {
+      width: 320,
+      height: 40,
+      backgroundColor: 'white',
+      marginBottom: 5,
+      borderRadius: 20,
+      alignSelf: 'center',
+      color: 'rgb(0, 0, 0.35)',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+      elevation: 10
+    },
+    inputText: {
+      marginTop: 10,
+      fontWeight: '500',
+      marginLeft: 40,
+      fontSize: 16,
+      fontFamily: 'Helvetica',
+      justifyContent: 'center'
+
     },
     logintextbutton: {
       fontSize: 16,
@@ -392,24 +436,33 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       marginBottom: 5,
       borderRadius: 20,
-      borderColor: 'black',
-      borderWidth: 1,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+      elevation: 10
     },
     mr40: {
       marginRight: 40
+    },
+    mt20: {
+      marginTop: 20
     },
     facebookbutton: {
       width: 320,
       height:40,
       backgroundColor: '#5054AE',
       paddingVertical: 10,
-      margin: 5,
+      margin: 10,
       borderRadius: 20,
-      borderColor: 'black',
-      borderWidth: 1,
       alignItems: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+      elevation: 10
     },
     IconStyle: {
   //  alignItems: 'center',

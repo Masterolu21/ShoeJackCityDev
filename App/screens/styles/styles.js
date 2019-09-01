@@ -109,7 +109,7 @@ export const commonStyles = {
   },
   ShopAttack: {
     width: 75,
-    backgroundColor: 'white',
+    backgroundColor: 'grey',
     borderRadius: 5,
     paddingVertical: 5
   },

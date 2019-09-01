@@ -35,21 +35,21 @@ class Tournament extends React.Component {
         }
       ],
       item: [ //What is this doing?
+       {
+         time: '11AM'
+       },
         {
-          time: '11AM'
+         time: '10AM'
         },
         {
-          time: '10AM'
-        },
-        {
-          time: '21PM'
-        },
-        {
-          time: '3AM'
-        }
-      ]
-    };
-  }
+         time: '21PM'
+       },
+       {
+         time: '3AM'
+       }
+     ],
+   };
+ }
 
   render() {
     const { height, width } = Dimensions.get('window');

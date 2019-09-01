@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     borderRadius: 0
   },
   IconColor: {
-    color: '#1562D0'
+    color: '#FF9A00'
   },
   defaultColor: {
     color: '#A9A9A9'

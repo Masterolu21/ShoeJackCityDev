@@ -4,9 +4,10 @@ import {MaterialIcons as Icon} from '@expo/vector-icons';
 import {
   View,
   Text,
+  TextInput,
   Dimensions,
   TouchableOpacity,
-
+  StyleSheet,
   Image,
   TouchableWithoutFeedback,
   FlatList
@@ -22,8 +23,8 @@ class ShopAttack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      counter: 0,
       isModalVisible: false,
-      clicks: 1,
       show: true,
       items: [
         {
@@ -67,14 +68,28 @@ class ShopAttack extends React.Component {
   }
 
   IncrementItem = () => {
-    this.setState({ clicks: this.state.clicks + 1 });
+    console.log(this.state.tempNum);
+    if(this.state.tempNum){
+          let sum = parseInt(this.state.counter) + parseInt(this.state.tempNum);
+          if(sum >=1 && sum <=99){
+              this.setState({ counter: sum, tempNum: '' });
+          }else{
+            console.log("Number should be between 1 and 99");
+            this.setState({error:"Number should be between 1 and 99"})
+          }
+    }
+  else{
+    this.setState({ counter: this.state.counter + 1 });
   }
-  DecreaseItem = () => {
-    this.setState({ clicks: this.state.clicks - 1 });
+}
+  DecrementItem = () => {
+    this.setState({ counter: this.state.counter - 1 });
   }
-  ToggleClick = () => {
-    this.setState({ show: !this.state.show });
-  }
+
+  handleOnTextChange = (e) => {
+         this.setState({tempNum: e.target.value})
+         console.log(this.state.tempNum)
+       }
 
   _toggleModal = () =>
   this.setState({ isModalVisible: !this.state.isModalVisible });
@@ -90,11 +105,10 @@ class ShopAttack extends React.Component {
     const { height, width } = Dimensions.get('window');
 
     return (
-      <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
         <View
           style={[
             commonStyles.flex1,
-            { backgroundColor: '#000000', marginHorizontal: 5 }
+            { backgroundColor: '#FFFFFF', marginHorizontal: 5 }
           ]}
         >
           <View
@@ -253,10 +267,20 @@ style={[commonStyles.ml10, { ...ifIphoneX(
               </View>
               <View style={[commonStyles.mt10, commonStyles.mb20]}>
                 <View style={[commonStyles.row, commonStyles.alignSelfcenter]}>
-                  <TouchableWithoutFeedback>
+                  <TouchableOpacity onPress={this.IncrementItem}>
+
                     <View
-                      style={[commonStyles.inventrybutton, commonStyles.zIndex]}
+                      style={[styles.counterButton]}
                     >
+                    <Icon
+                      type="MaterialIcons"
+                      name="add"
+                      size={40}
+                      style={[
+                        commonStyles.alignSelfcenter,
+                        commonStyles.justifyCenter
+                      ]}
+                      />
                       <Text
                         style={[
                           commonStyles.inventrytextbutton,
@@ -264,16 +288,14 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                           {}
                         ]}
                       >
-                        EXCHANGE
                       </Text>
                     </View>
-                  </TouchableWithoutFeedback>
+                  </TouchableOpacity>
                   <View
                     style={[
-                      commonStyles.inventrybar,
-                      commonStyles.alignSelfcenter,
-                      commonStyles.row,
-                      commonStyles.right10
+                      styles.inventrybar,
+                      styles.alignSelfcenter,
+                      styles.row,
                     ]}
                   >
                     <Icon
@@ -288,16 +310,48 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                         }
                       ]}
                     />
-                    <Text
+                    <TextInput
+                      keyboardType = 'numeric'
+                      returnKeyType="done"
+                      type="text"
+                      name="tempNum"
+                      value={this.state.tempNum}
+                      onChangeText={(text) => this.setState({text})}
+                      maxValue={99}
+                      minValue={0}
                       style={[
                         commonStyles.inventrybartextbutton,
                         commonStyles.redText,
                         commonStyles.ml5
                       ]}
-                    >
-                      150
-                    </Text>
+                      >
+                    {this.state.counter}
+
+                    </TextInput>
                   </View>
+                  <TouchableOpacity onPress={this.DecrementItem}>
+                    <View
+                      style={[styles.counterButton]}
+                    >
+                    <Icon
+                      type="MaterialIcons"
+                      name="remove"
+                      size={40}
+                      style={[
+                        commonStyles.alignItems,
+                        commonStyles.justifyCenter
+                      ]}
+                      />
+                      <Text
+                        style={[
+                          commonStyles.inventrytextbutton,
+                          commonStyles.bl,
+                          {}
+                        ]}
+                      >
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -308,14 +362,14 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                 commonStyles.ml5,
                 {
                   borderWidth: 0.5,
-                  borderColor: 'white',
+                  borderColor: 'grey',
                   height: 0,
                   width: width * 0.42
                 }
               ]}
             />
             <Text
-              style={[commonStyles.ml5, commonStyles.mr5, commonStyles.top10, { color: 'white' }]}
+              style={[commonStyles.ml5, commonStyles.mr5, commonStyles.top10, { color: 'grey' }]}
             >
               ITEMS
             </Text>
@@ -323,7 +377,7 @@ style={[commonStyles.ml10, { ...ifIphoneX(
               style={{
                 borderWidth: 0.5,
                 height: 0,
-                borderColor: 'white',
+                borderColor: 'grey',
                 width: width * 0.38
               }}
             />
@@ -384,14 +438,14 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                       source={image}
                     />
 
-                    <Text style={[commonStyles.textAligncenter, commonStyles.textwhite]}>
+                    <Text style={[styles.modalTextBox]}>
                       RUNE ATTACK
                     </Text>
                   </View>
                 </TouchableOpacity>
                 <View
                   style={[
-                    commonStyles.ShopAttack,
+                    styles.ShopAttack,
                     commonStyles.alignSelfcenter,
                     commonStyles.mt20,
                     commonStyles.mb20
@@ -418,9 +472,58 @@ style={[commonStyles.ml10, { ...ifIphoneX(
             )}
           />
         </View>
-      </View>
     );
   }
 }
+
+const styles = StyleSheet.create ({
+  counterButton: {
+  width: 50,
+  height:50,
+  backgroundColor: '#5054AE',
+  borderRadius: 40,
+  borderColor: 'black',
+  alignItems: 'center',
+  justifyContent:'center',
+  },
+  inventrybutton: {
+    width: 20,
+    backgroundColor: '#937ce6',
+    paddingVertical: 10,
+    marginBottom: 5,
+    borderRadius: 20,
+    zIndex: 10,
+    marginLeft: 20
+  },
+  inventrybar: {
+    width: 100,
+    paddingVertical: 15,
+    marginBottom: 5,
+    backgroundColor: '#d6d6e2',
+    borderRadius: 10
+  },
+  row: {
+    flexDirection: 'row'
+  },
+  alignSelfcenter: {
+    alignSelf: 'center'
+  },
+  right10: {
+    right: 10
+  },
+  black: {
+    color: 'black'
+  },
+  ShopAttack: {
+    width: 75,
+    backgroundColor: 'grey',
+    borderRadius: 5,
+    paddingVertical: 5
+  },
+  modalTextBox: {
+      textAlign: 'center',
+      color: 'black'
+  },
+});
 
 export default ShopAttack;

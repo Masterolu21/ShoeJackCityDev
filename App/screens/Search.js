@@ -10,21 +10,22 @@ import {
   TextInput,
   Keyboard
 } from 'react-native';
-
 import * as Animatable from 'react-native-animatable';
 import { SearchBar } from 'react-native-elements';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
-import {MaterialIcons as Icon} from '@expo/vector-icons';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { commonStyles } from './styles/styles';
 import image from '../assets/Images/Air_Force_1_Low_Off-White_Volt.png';
 import Footer from '../Components/Footer';
-import { TOURNAMENT } from '../utils/constants';
+import { SEARCH } from '../utils/constants';
 
 
-class Tournament extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isloading: true,
+      datasource: null,
       searchBarFocused: false,
       items: [
         {
@@ -57,25 +58,26 @@ class Tournament extends React.Component {
    };
  }
  componentDidMount() {
+   return fetch('');
    this.keyboardDidShow = Keyboard.addListener('keyboardDidShow',
-   this.keyboardDidShow)
+   this.keyboardDidShow);
    this.keyboardWillShow = Keyboard.addListener('keyboardWillShow',
-   this.keyboardWillShow)
+   this.keyboardWillShow);
    this.keyboardWillHide = Keyboard.addListener('keyboardWillHide',
-   this.keyboardWillHide)
+   this.keyboardWillHide);
  }
 
-  keyboardDidShow = () =>{
-    this.setState({ searchBarFocused: true })
+  keyboardDidShow = () => {
+    this.setState({ searchBarFocused: true });
   }
 
   keyboardWillShow = () => {
     //This does not work for android
-    this.setState({ searchBarFocused: true })
+    this.setState({ searchBarFocused: true });
   }
 
   keyboardWillHide = () => {
-    this.setState({ searchBarFocused: false })
+    this.setState({ searchBarFocused: false });
   }
   render() {
     const { height, width } = Dimensions.get('window');
@@ -100,18 +102,19 @@ class Tournament extends React.Component {
               }
             ]
             }
-          >
+        >
           <View styles={styles.flexDirection}>
-          <Animatable.View animation="slideInRight" duration={500} style={[styles.SearchBar,styles.SearchBarText, {
+          <Animatable.View
+animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchBarText, {
             height: height * 0.05
           }
         ]
       }
-      >
-      <Animatable.View animation={this.state.searchBarFocused ? "fadeInLeft" : "fadeInRight"} duration={400}>
-      <Icon name={this.state.searchBarFocused ? "md-arrow-back" : "search"} style={{fontSize: 24 }} />
+          >
+      <Animatable.View animation={this.state.searchBarFocused ? 'fadeInLeft' : 'fadeInRight'} duration={400}>
+      <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ fontSize: 24 }} />
       </Animatable.View>
-      <TextInput placeholder="Search" style={{fontSize: 16, marginLeft: 10, flex: 1 }} />
+      <TextInput placeholder="Search" style={{ fontSize: 16, marginLeft: 10, flex: 1 }} />
       </Animatable.View>
       <Icon
         name="tune"
@@ -124,7 +127,7 @@ class Tournament extends React.Component {
           </View>
         </View>
         <FlatList
-          style={{backgroundColor:this.state.searchBarFocused ? 'rgba(0,0,0,0.3)': 'white'}} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
+          style={{ backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white' }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
           showsVerticalScrollIndicator={false}
           data={this.state.items}
           keyExtractor={(item, index) => index.toString()}
@@ -196,14 +199,14 @@ class Tournament extends React.Component {
                         />
                         <View
                           style={[
-                            commonStyles.tournament,
+                            styles.search,
                             commonStyles.alignSelfcenter,
                             commonStyles.mr20
                           ]}
                         >
                           <Text
                             style={[
-                              commonStyles.tournamenttext,
+                              styles.Searchtext,
                               commonStyles.alignSelfcenter,
                               { width: width * 0.31 }
                             ]}
@@ -219,7 +222,7 @@ class Tournament extends React.Component {
             </View>
           )}
         />
-        <Footer navigation={this.props.navigation} activeTab={TOURNAMENT} />
+        <Footer navigation={this.props.navigation} activeTab={SEARCH} />
       </View>
     );
   }
@@ -247,7 +250,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica',
     alignItems: 'center',
     fontSize: 16,
-  }
+  },
+  Searchtext: {
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#ffffff'
+  },
+  search: {
+    width: 130,
+    borderRadius: 25,
+    backgroundColor: '#000000'
+  },
 });
 
-export default Tournament;
+export default Search;

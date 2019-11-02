@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, Dimensions, SafeAreaView } from "react-native";
+import { View, Image, Dimensions, SafeAreaView, StyleSheet } from "react-native";
 //using native base tabs
 import { Tab, Tabs, Header } from "native-base";
 import { commonStyles } from "./styles/styles";
@@ -21,28 +21,28 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#000000'}}>
-      <View style={[commonStyles.flex1, commonStyles.backgroundBlack]}>
+      // <SafeAreaView style={{flex: 1, backgroundColor: '#000000'}}>
+      <View style={styles.styleView}>
       <Tabs
         tabContainerStyle={[
           commonStyles.elevation0,
+          commonStyles.marginTop15,
           { borderBottomWidth: 0 }
         ]}
         tabBarUnderlineStyle={[
           commonStyles.tabBarstyle,
-          commonStyles.marginTop15,
           { marginLeft: width * 0.23 }
         ]}
       >
         <Tab
           heading="Sign In"
-          tabStyle={[commonStyles.tabBackgroundcolor]}
+          tabStyle={[styles.tabBackgroundcolor]}
           textStyle={[
             commonStyles.textBold,
             commonStyles.fontsize16,
             commonStyles.tabtextcolor
           ]}
-          activeTabStyle={[commonStyles.tabBackgroundcolor]}
+          activeTabStyle={[styles.tabBackgroundcolor]}
           activeTextStyle={[
             commonStyles.fontsize16,
             commonStyles.tabactivetextcolor
@@ -52,13 +52,13 @@ class LoginScreen extends React.Component {
         </Tab>
         <Tab
           heading="Sign Up"
-          tabStyle={[commonStyles.tabBackgroundcolor]}
+          tabStyle={[styles.tabBackgroundcolor]}
           textStyle={[
             commonStyles.fontsize16,
             commonStyles.textBold,
             commonStyles.tabtextcolor
           ]}
-          activeTabStyle={[commonStyles.tabBackgroundcolor]}
+          activeTabStyle={[styles.tabBackgroundcolor]}
           activeTextStyle={[
             commonStyles.fontsize16,
             commonStyles.tabactivetextcolor
@@ -68,9 +68,19 @@ class LoginScreen extends React.Component {
         </Tab>
       </Tabs>
     </View>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 }
 }
+
+const styles = StyleSheet.create({
+  styleView:{
+    flex: 1,
+    backgroundColor: 'rgb(72, 244, 255)'
+  },
+  tabBackgroundcolor: {
+    backgroundColor: 'rgb(72, 244, 255)'
+  },
+});
 
 export default LoginScreen;

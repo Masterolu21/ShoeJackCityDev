@@ -5,6 +5,7 @@ import Account from './App/screens/Account';
 import Inventory from './App/screens/Inventory';
 import Settings from './App/screens/Settings';
 import SignUp from './App/screens/SignUp';
+import Search from './App/screens/Search';
 import ForgotScreen from './App/screens/ForgotScreen';
 import Tournament from './App/screens/Tournament';
 import TournamentRsvp from './App/screens/TournamentRsvp';
@@ -53,6 +54,9 @@ const routes = {
     Inventory: {
         screen: Inventory
     },
+    Search: {
+      screen: Search
+    }
 };
 
 class AuthLoadingScreen extends React.Component {

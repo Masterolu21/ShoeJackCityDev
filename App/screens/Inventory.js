@@ -6,7 +6,7 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-
+  StyleSheet,
   Image,
   TouchableWithoutFeedback,
   FlatList
@@ -78,56 +78,14 @@ class Inventory extends React.Component {
     const { height, width } = Dimensions.get('window');
 
     return (
-      <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
         <View
           style={[
             commonStyles.flex1,
-            { backgroundColor: '#000000', marginHorizontal: 5 }
+            { backgroundColor: '#FFFFFF'}
           ]}
         >
-          <View
-            style={[
-
-              commonStyles.zIndex,
-              commonStyles.positionabsolute,
-              commonStyles.right0,
-              {
-                width: 100,
-                height: 20,
-                backgroundColor: '#f70000',
-                borderTopLeftRadius: 10,
-                borderBottomLeftRadius: 10,
-                ...ifIphoneX(
-                  {
-                    top: 60
-                  },
-                  {
-                    top: 40
-                  }
-                )
-              }
-            ]}
-          >
-            <View style={[commonStyles.row]}>
-              <Icon
-                type="MaterialIcons"
-                name="monetization-on"
-                style={[
-                  commonStyles.font16,
-                  commonStyles.alignSelfcenter,
-                  commonStyles.ml5,
-                  {
-                    color: '#C8A74D'
-                  }
-                ]}
-              />
-
-              <Text style={[commonStyles.ml5, { color: '#C8A74D' }]}>23</Text>
-            </View>
-          </View>
-
-          <View
-style={[commonStyles.ml10, { ...ifIphoneX(
+        <View
+          style={[commonStyles.ml10, { ...ifIphoneX(
                   {
                     paddingTop: 40
                   },
@@ -142,7 +100,7 @@ style={[commonStyles.ml10, { ...ifIphoneX(
               }}
               type="MaterialIcons"
               name="arrow-back"
-              style={[commonStyles.font18, commonStyles.textwhite]}
+              style={[commonStyles.font18, styles.IconColor]}
             />
             {/* <Text style={[commonStyles.textblack]}>Message</Text> */}
           </View>
@@ -296,14 +254,14 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                 commonStyles.ml5,
                 {
                   borderWidth: 0.5,
-                  borderColor: 'white',
+                  borderColor: 'grey',
                   height: 0,
                   width: width * 0.42
                 }
               ]}
             />
             <Text
-              style={[commonStyles.ml5, commonStyles.mr5, commonStyles.top10, { color: 'white' }]}
+              style={[commonStyles.ml5, commonStyles.mr5, commonStyles.top10, { color: 'grey' }]}
             >
               ITEMS
             </Text>
@@ -311,7 +269,7 @@ style={[commonStyles.ml10, { ...ifIphoneX(
               style={{
                 borderWidth: 0.5,
                 height: 0,
-                borderColor: 'white',
+                borderColor: 'grey',
                 width: width * 0.38
               }}
             />
@@ -372,14 +330,14 @@ style={[commonStyles.ml10, { ...ifIphoneX(
                       source={image}
                     />
 
-                    <Text style={[commonStyles.textAligncenter, commonStyles.textwhite]}>
+                    <Text style={[styles.modalTextBox]}>
                       RUNE ATTACK
                     </Text>
                   </View>
                 </TouchableOpacity>
                 <View
                   style={[
-                    commonStyles.Inventory,
+                    styles.inventoryDescription,
                     commonStyles.alignSelfcenter,
                     commonStyles.mt20,
                     commonStyles.mb20
@@ -406,9 +364,57 @@ style={[commonStyles.ml10, { ...ifIphoneX(
             )}
           />
         </View>
-      </View>
     );
   }
 }
+const styles = StyleSheet.create ({
+  counterButton: {
+  width: 50,
+  height:50,
+  backgroundColor: '#5054AE',
+  borderRadius: 40,
+  borderColor: 'black',
+  alignItems: 'center',
+  justifyContent:'center',
+  },
+  inventrybutton: {
+    width: 20,
+    backgroundColor: '#937ce6',
+    paddingVertical: 10,
+    marginBottom: 5,
+    borderRadius: 20,
+    zIndex: 10,
+    marginLeft: 20
+  },
+  inventrybar: {
+    width: 100,
+    paddingVertical: 15,
+    marginBottom: 5,
+    backgroundColor: '#d6d6e2',
+    borderRadius: 10
+  },
+  row: {
+    flexDirection: 'row'
+  },
+  alignSelfcenter: {
+    alignSelf: 'center'
+  },
+  right10: {
+    right: 10
+  },
+  inventoryDescription: {
+    width: 75,
+    backgroundColor: 'grey',
+    borderRadius: 5,
+    paddingVertical: 5
+  },
+  IconColor: {
+    color: 'grey'
+  },
+  modalTextBox: {
+      textAlign: 'center',
+      color: 'black'
+  },
+});
 
 export default Inventory;

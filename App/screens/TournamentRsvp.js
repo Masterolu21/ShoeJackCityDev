@@ -23,7 +23,7 @@ class TournamentRsvp extends React.Component {
     const uri =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVuX0uaDPSwnfS_Rue4cKqk7EhmXDqzpKl9MYeEWZiK9k6NtepIg';
     return (
-      <View style={[commonStyles.flex1, { backgroundColor: '#000000' }]}>
+      <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
         <View
 style={{ flexDirection: 'row',
 ...ifIphoneX(
@@ -42,13 +42,13 @@ style={{ flexDirection: 'row',
             }}
             name="arrow-back"
             type="MaterialIcons"
-            style={[commonStyles.font28, commonStyles.ml10, { color: 'white' }]}
+            style={[commonStyles.font28, commonStyles.ml10, { color: 'black' }]}
           />
           <View style={[commonStyles.flex1, commonStyles.alignEnd, commonStyles.mr10,]}>
             <Icon
               name="drag-handle"
               type="MaterialIcons"
-              style={[commonStyles.font28, commonStyles.ml5, commonStyles.textWhite]}
+              style={[commonStyles.font28, commonStyles.ml5, { color: 'black' }]}
             />
           </View>
         </View>
@@ -67,7 +67,7 @@ style={{ flexDirection: 'row',
         </View>
         <View style={{ marginLeft: 30 }}>
           <Text
-            style={[commonStyles.textBold, commonStyles.font20, commonStyles.textWhite, {
+            style={[commonStyles.textBold, commonStyles.font20, {color: 'black'}, {
 
               width: 200,
 
@@ -75,7 +75,7 @@ style={{ flexDirection: 'row',
           >
             Air Force 1 Low Off-White Volt
           </Text>
-          <Text style={[commonStyles.mt10, commonStyles.textWhite]}>
+          <Text style={[commonStyles.mt10, { color: 'black' }]}>
             COLORWAY: VOLT/HYPER JADE-CONE-BLACK{' '}
           </Text>
           <Rating
@@ -84,10 +84,10 @@ style={{ flexDirection: 'row',
             iconWidth={20}
             iconHeight={20}
           />
-          <Text style={[commonStyles.mt30, commonStyles.textWhite]}>
+          <Text style={[commonStyles.mt30, { color: 'black' }]}>
             Be more lit than a lightning bolt while wearing Nike and Virgil’s Air Force 1 Low Off-White Volt. This AF1 comes with a volt upper, black Nike “Swoosh”, volt midsole, and volt sole.
           </Text>
-          <Text style={[commonStyles.mt10, commonStyles.textWhite]}>Color Avalible</Text>
+          <Text style={[commonStyles.mt10, { color: 'black' }]}>Color Avalible</Text>
 
         </View>
         <View style={{ top: 20 }}>
@@ -132,7 +132,7 @@ flex: 1,
                 style={[
                   commonStyles.fontsize22,
                   commonStyles.ml10,
-                  commonStyles.textWhite
+                  commonStyles.textwhite
 
                 ]}
               />
@@ -147,11 +147,11 @@ flex: 1,
             ]}
           >
             <Text
-              style={[commonStyles.textBold, commonStyles.font20, commonStyles.textAligncenter, commonStyles.textWhite,]}
+              style={[commonStyles.textBold, commonStyles.font20, commonStyles.textAligncenter, { color: 'black' },]}
             >
               $ 165.00
             </Text>
-            <Text style={[commonStyles.textWhite, commonStyles.font10]}>*Free Shipping</Text>
+            <Text style={[{ color: 'black' }, commonStyles.font10]}>*Free Shipping</Text>
           </View>
         </View>
       </View>

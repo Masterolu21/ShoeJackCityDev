@@ -168,7 +168,7 @@ style={[commonStyles.ml10, { ...ifIphoneX(
               }}
               type="MaterialIcons"
               name="arrow-back"
-              style={[commonStyles.font18, commonStyles.textwhite]}
+              style={[commonStyles.font18, styles.textwhite]}
             />
             {/* <Text style={[commonStyles.textblack]}>Message</Text> */}
           </View>

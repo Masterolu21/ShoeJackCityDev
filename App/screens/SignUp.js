@@ -92,7 +92,7 @@ class SignUp extends React.Component {
           }]}>
           <Animated.Image
               resizeMode={'contain'}
-              style={{ transform: [{rotate: spin}], width: 200, height: 200}}
+              style={{ transform: [{rotate: spin}], width: 200, height: 100}}
               source={image}
           />
         </View>
@@ -154,6 +154,22 @@ class SignUp extends React.Component {
               }
             ]}
             placeholder="PASSWORD"
+            autoCapitalize="none"
+            value={this.state.password}
+            onChangeText={password => this.setState({ password })}
+            secureTextEntry
+          />
+          <InputText
+            style={[
+              commonStyles.mt10,
+              commonStyles.br12,
+              commonStyles.font16,
+
+              {
+                width: width * 0.9
+              }
+            ]}
+            placeholder="Re-TypePASSWORD"
             autoCapitalize="none"
             value={this.state.password}
             onChangeText={password => this.setState({ password })}

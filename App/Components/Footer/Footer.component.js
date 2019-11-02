@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Footer, FooterTab, Button } from 'native-base';
 import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { commonStyles } from '../../screens/styles/styles';
-import { ACCOUNT, TOURNAMENT, SHOP, GAME } from '../../utils/constants';
+import { HOME, SEARCH, TOURNAMENT, SHOP, ACCOUNT } from '../../utils/constants';
 
 class AppFooterComponent extends React.Component {
   render() {
@@ -14,30 +14,57 @@ class AppFooterComponent extends React.Component {
           <FooterTab style={[styles.container]}>
             <Button
               style={[
-                activeTab === ACCOUNT, //What is this doing?
+                activeTab === HOME, //What is this doing?
               ]}
-              onPress={activeTab === ACCOUNT ? () => {} : () => onChangeTab(ACCOUNT)}
+              onPress={activeTab === HOME ? () => {} : () => onChangeTab(HOME)}
             >
 
               <Icon
                 type="MaterialIcons"
-                name="person"
+                name="home"
                 style={
-                  activeTab === ACCOUNT
+                  activeTab === HOME
                     ? styles.IconColor //if it is clicked make the Icon red
                     : styles.defaultColor // if it is not clicked make the Icon color grey
                 }
               />
 
               <Text
-                style={[activeTab === ACCOUNT
+                style={[activeTab === HOME
                   ? styles.IconColor
                   : styles.defaultColor,
                     styles.Text]}
               >
-                Account
+                Home
               </Text>
             </Button>
+
+            <Button
+              style={[activeTab === SEARCH]}
+              onPress={activeTab === SEARCH
+                ? () => {}
+                : () => onChangeTab(SEARCH)}
+            >
+
+              <Icon
+                type="MaterialIcons"
+                name="search"
+                style={[{ marginTop: 8 },
+                  activeTab === SEARCH
+                  ? styles.IconColor
+                  : styles.defaultColor]}
+              />
+
+              <Text
+                style={[{ width: 80, textAlign: 'center' },
+                activeTab === SEARCH //What is this activeTab
+                 ? styles.IconColor
+                 : styles.defaultColor,
+                 styles.Text]}
+              >
+          Search
+              </Text>
+              </Button>
 
           <Button
             style={[activeTab === TOURNAMENT]}
@@ -48,7 +75,7 @@ class AppFooterComponent extends React.Component {
 
             <Icon
               type="MaterialIcons"
-              name="email"
+              name="videogame-asset"
               style={[{ marginTop: 8 },
                 activeTab === TOURNAMENT
                 ? styles.IconColor
@@ -67,53 +94,27 @@ class AppFooterComponent extends React.Component {
             </Button>
 
         <Button
-            style={[activeTab === SHOP
-              ? styles.backgroundRed
-              : styles.backgroundWhite,
-              styles.br0]}
-              onPress={activeTab === SHOP ? () => {} : () => onChangeTab(SHOP)}
-        >
-
-          <Icon
-            type="MaterialIcons"
-            name="local-grocery-store"
-            style={[activeTab === SHOP
-              ? styles.IconColor
-              : styles.defaultColor]}
-          />
-
-          <Text
-            style={[activeTab === SHOP
-              ? styles.IconColor
-              : styles.defaultColor,
-              styles.Text]}
-          >
-                Shop
-          </Text>
-        </Button>
-
-        <Button
-            style={[activeTab === GAME
+            style={[activeTab === ACCOUNT
               ? styles.backgroundRed
               : styles.backgroundWhite,
                 styles.br0]}
-            onPress={activeTab === GAME ? () => {} : () => onChangeTab(GAME)}
+            onPress={activeTab === ACCOUNT ? () => {} : () => onChangeTab(ACCOUNT)}
         >
           <Icon
             type="MaterialIcons"
-            name="videogame-asset"
-            style={[activeTab === GAME
+            name="person"
+            style={[activeTab === ACCOUNT
               ? styles.IconColor
               : styles.defaultColor]}
           />
 
           <Text
-            style={[activeTab === GAME
+            style={[activeTab === ACCOUNT
               ? styles.IconColor
               : styles.defaultColor,
                 styles.Text]}
           >
-            Game
+            Account
           </Text>
         </Button>
       </FooterTab>
@@ -125,7 +126,7 @@ class AppFooterComponent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#000000'
   },
   br0: {
     borderRadius: 0

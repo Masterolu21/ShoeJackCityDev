@@ -27,7 +27,9 @@ class Search extends React.Component {
       isloading: true,
       datasource: null,
       searchBarFocused: false,
-      items: []
+      items: [],
+      search: '',
+      allItems: []
    };
  }
 
@@ -47,7 +49,8 @@ class Search extends React.Component {
       items.push(products[product])
     }
     this.setState({
-      items
+      items,
+      allItems: items
     })
   }
 
@@ -63,6 +66,28 @@ class Search extends React.Component {
   keyboardWillHide = () => {
     this.setState({ searchBarFocused: false });
   }
+
+  onChangeSearchText = (searchInput) => {
+    const { allItems } = this.state
+    // if empty search string then show all items
+    if (searchInput === '') {
+      this.setState({
+        items: allItems,
+        search: searchInput
+      })
+    } else {
+      const filteredProducts = allItems.filter((product) => {
+        if (product.name.includes(searchInput)) {
+          return true
+        }
+      })
+      this.setState({
+        items: filteredProducts,
+        search: searchInput
+      })
+    }
+  }
+
   render() {
     const { height, width } = Dimensions.get('window');
     const { search, items } = this.state;
@@ -80,7 +105,12 @@ class Search extends React.Component {
               <Animatable.View animation={this.state.searchBarFocused ? 'fadeInLeft' : 'fadeInRight'} duration={400}>
                 <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ fontSize: 24 }} />
               </Animatable.View>
-              <TextInput placeholder="Search" style={{ fontSize: 16, marginLeft: 10, flex: 1 }} />
+              <TextInput
+                placeholder="Search"
+                style={{ fontSize: 16, marginLeft: 10, flex: 1 }}
+                value={search}
+                onChangeText={(input) => this.onChangeSearchText(input)}
+              />
             </Animatable.View>
             <Icon
               name="tune"
@@ -92,16 +122,16 @@ class Search extends React.Component {
           </View>
         </View>
         <FlatList
-          style={{ backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white', height: 500 }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
+          style={{ /* backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white',*/ }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
           showsVerticalScrollIndicator={false}
-          numColumns={3}
+          numColumns={2}
           data={items}
           keyExtractor={(product) => product.name}
           renderItem={product => (
-              <TouchableOpacity onPress={() => navigate('TournamentRsvp')} style={{ width: '33%', height: 150, borderWidth: 1, borderColor: 'red' }}>
+              <TouchableOpacity onPress={() => navigate('TournamentRsvp')} style={{ width: '50%', height: 150 }}>
                 <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
                   <Image source={{ uri: product.item.imageSource }} resizeMode={'contain'} style={{ flex: 3 }} />
-                  <View style={{ height: 30, backgroundColor: 'red', borderRadius: 8, flexDirection: 'column', justifyContent: 'center' }}>
+                  <View style={{ height: 30, flexDirection: 'column', justifyContent: 'center' }}>
                     <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, padding: 4 }}>{product.item.name}</Text>
                   </View>
                 </View>

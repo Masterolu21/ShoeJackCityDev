@@ -18,7 +18,7 @@ import { commonStyles } from './styles/styles';
 import image from '../assets/Images/Air_Force_1_Low_Off-White_Volt.png';
 import Footer from '../Components/Footer';
 import { SEARCH } from '../utils/constants';
-
+import firebase from 'firebase'
 
 class Search extends React.Component {
   constructor(props) {
@@ -27,45 +27,29 @@ class Search extends React.Component {
       isloading: true,
       datasource: null,
       searchBarFocused: false,
-      items: [
-        {
-          Eventname: 'Air Force 1 Low Off-White Volt' //What is this doing?
-        },
-        {
-          Eventname: 'Air Force 1 Low Off-White Volt'
-        },
-        {
-          Eventname: 'Air Force 1 Low Off-White Volt'
-        },
-        {
-          Eventname: 'Air Force 1 Low Off-White Volt'
-        }
-      ],
-      item: [ //What is this doing?
-       {
-         time: '11AM'
-       },
-        {
-         time: '10AM'
-        },
-        {
-         time: '21PM'
-       },
-       {
-         time: '3AM'
-       }
-     ],
+      items: []
    };
  }
- componentDidMount() {
-   return fetch('');
-   this.keyboardDidShow = Keyboard.addListener('keyboardDidShow',
-   this.keyboardDidShow);
-   this.keyboardWillShow = Keyboard.addListener('keyboardWillShow',
-   this.keyboardWillShow);
-   this.keyboardWillHide = Keyboard.addListener('keyboardWillHide',
-   this.keyboardWillHide);
- }
+
+  async componentDidMount() {
+    this.keyboardDidShow = Keyboard.addListener('keyboardDidShow',
+    this.keyboardDidShow);
+    this.keyboardWillShow = Keyboard.addListener('keyboardWillShow',
+    this.keyboardWillShow);
+    this.keyboardWillHide = Keyboard.addListener('keyboardWillHide',
+    this.keyboardWillHide);
+
+    const snapshot = await firebase.database().ref('products/').once('value')
+    const products = snapshot.val()
+    console.log('products: ', products)
+    const items = []
+    for (const product in products) {
+      items.push(products[product])
+    }
+    this.setState({
+      items
+    })
+  }
 
   keyboardDidShow = () => {
     this.setState({ searchBarFocused: true });
@@ -81,7 +65,7 @@ class Search extends React.Component {
   }
   render() {
     const { height, width } = Dimensions.get('window');
-    const { search } = this.state;
+    const { search, items } = this.state;
     const {
       navigation: { navigate }
     } = this.props;
@@ -104,34 +88,29 @@ class Search extends React.Component {
             }
         >
           <View styles={styles.flexDirection}>
-          <Animatable.View
-animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchBarText, {
-            height: height * 0.05
-          }
-        ]
-      }
-          >
-      <Animatable.View animation={this.state.searchBarFocused ? 'fadeInLeft' : 'fadeInRight'} duration={400}>
-      <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ fontSize: 24 }} />
-      </Animatable.View>
-      <TextInput placeholder="Search" style={{ fontSize: 16, marginLeft: 10, flex: 1 }} />
-      </Animatable.View>
-      <Icon
-        name="tune"
-        type="MaterialIcons"
-        style={[
-          commonStyles.font26,
-          styles.TextColor
-        ]}
-      />
+            <Animatable.View
+              animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchBarText,
+              { height: height * 0.05 }]}>
+              <Animatable.View animation={this.state.searchBarFocused ? 'fadeInLeft' : 'fadeInRight'} duration={400}>
+                <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ fontSize: 24 }} />
+              </Animatable.View>
+              <TextInput placeholder="Search" style={{ fontSize: 16, marginLeft: 10, flex: 1 }} />
+            </Animatable.View>
+            <Icon
+              name="tune"
+              type="MaterialIcons"
+              style={[
+                commonStyles.font26,
+                styles.TextColor]}
+            />
           </View>
         </View>
         <FlatList
           style={{ backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white' }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
           showsVerticalScrollIndicator={false}
-          data={this.state.items}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={item => (
+          data={items}
+          keyExtractor={(product) => product.name}
+          renderItem={product => (
             <View
               style={[commonStyles.row, commonStyles.bbw3, commonStyles.brw3]}
             >
@@ -173,7 +152,7 @@ animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchB
                 horizontal
                 data={this.state.item}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={item => (
+                renderItem={time => (
                   <View
                     style={[
                       commonStyles.row,
@@ -186,7 +165,7 @@ animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchB
                     >
                       <View>
                         <Image
-                          source={image}
+                          source={{ uri: product.item.imageSource }}
                           resizeMode={'contain'}
                           style={[
                             commonStyles.mr20,
@@ -211,7 +190,7 @@ animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchB
                               { width: width * 0.31 }
                             ]}
                           >
-                            Air Force 1 Low Off-White Volt
+                            {product.item.name}
                           </Text>
                         </View>
                       </View>

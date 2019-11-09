@@ -72,21 +72,7 @@ class Search extends React.Component {
 
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
-        <View
-            style={[styles.Header, {
-              height: height * 0.1,
-                ...ifIphoneX(
-                  {
-                    marginTop: 50
-                  },
-                  {
-                    marginTop: 30
-                  }
-                )
-              }
-            ]
-            }
-        >
+        <View style={[styles.Header, { height: height * 0.1, ...ifIphoneX({ marginTop: 50 }, { marginTop: 30 })}]}>
           <View styles={styles.flexDirection}>
             <Animatable.View
               animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchBarText,
@@ -106,99 +92,20 @@ class Search extends React.Component {
           </View>
         </View>
         <FlatList
-          style={{ backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white' }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
+          style={{ backgroundColor: this.state.searchBarFocused ? 'rgba(0,0,0,0.3)' : 'white', height: 500 }} //If this.state.searchBarFocused is focused set the background color is black if not set to white.
           showsVerticalScrollIndicator={false}
+          numColumns={3}
           data={items}
           keyExtractor={(product) => product.name}
           renderItem={product => (
-            <View
-              style={[commonStyles.row, commonStyles.bbw3, commonStyles.brw3]}
-            >
-              <View
-                style={[
-                  commonStyles.column,
-                  commonStyles.justifyCenter,
-                  {
-                    width: width * 0.11,
-                    height: height * 0.21,
-                    backgroundColor: '#A9A9A9',
-
-                    borderBottomRightRadius: 10,
-                    borderTopRightRadius: 10
-                  }
-                ]}
-              >
-                <Icon
-                  type="MaterialIcons"
-                  name="alarm"
-                  style={[
-                    commonStyles.textwhite,
-                    commonStyles.font18,
-                    commonStyles.alignSelfcenter
-                  ]}
-                />
-                <Text
-                  style={[
-                    commonStyles.textwhite,
-                    commonStyles.fontsize12,
-                    commonStyles.alignSelfcenter
-                  ]}
-                >
-                  10PM
-                </Text>
-              </View>
-              <FlatList
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                data={this.state.item}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={time => (
-                  <View
-                    style={[
-                      commonStyles.row,
-                      commonStyles.ml20,
-                      commonStyles.brw3
-                    ]}
-                  >
-                    <TouchableOpacity
-                      onPress={() => navigate('TournamentRsvp')}
-                    >
-                      <View>
-                        <Image
-                          source={{ uri: product.item.imageSource }}
-                          resizeMode={'contain'}
-                          style={[
-                            commonStyles.mr20,
-                            commonStyles.alignSelfcenter,
-                            {
-                              height: height * 0.15,
-                              width: width * 0.3
-                            }
-                          ]}
-                        />
-                        <View
-                          style={[
-                            styles.search,
-                            commonStyles.alignSelfcenter,
-                            commonStyles.mr20
-                          ]}
-                        >
-                          <Text
-                            style={[
-                              styles.Searchtext,
-                              commonStyles.alignSelfcenter,
-                              { width: width * 0.31 }
-                            ]}
-                          >
-                            {product.item.name}
-                          </Text>
-                        </View>
-                      </View>
-                    </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigate('TournamentRsvp')} style={{ width: '33%', height: 150, borderWidth: 1, borderColor: 'red' }}>
+                <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+                  <Image source={{ uri: product.item.imageSource }} resizeMode={'contain'} style={{ flex: 3 }} />
+                  <View style={{ height: 30, backgroundColor: 'red', borderRadius: 8, flexDirection: 'column', justifyContent: 'center' }}>
+                    <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, padding: 4 }}>{product.item.name}</Text>
                   </View>
-                )}
-              />
-            </View>
+                </View>
+              </TouchableOpacity>
           )}
         />
         <Footer navigation={this.props.navigation} activeTab={SEARCH} />

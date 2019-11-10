@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Footer, FooterTab, Button } from 'native-base';
 import {MaterialIcons as Icon} from '@expo/vector-icons';
 import { commonStyles } from '../../screens/styles/styles';
-import { HOME, SEARCH, TOURNAMENT, SHOP, ACCOUNT } from '../../utils/constants';
+import { SIGNIN, SEARCH, TOURNAMENT, SHOP, ACCOUNT } from '../../utils/constants';
 
 class AppFooterComponent extends React.Component {
   render() {
@@ -14,23 +14,23 @@ class AppFooterComponent extends React.Component {
           <FooterTab style={[styles.container]}>
             <Button
               style={[
-                activeTab === HOME, //What is this doing?
+                activeTab === SIGNIN, //What is this doing?
               ]}
-              onPress={activeTab === HOME ? () => {} : () => onChangeTab(HOME)}
+              onPress={activeTab === SIGNIN ? () => {} : () => onChangeTab(SIGNIN)}
             >
 
               <Icon
                 type="MaterialIcons"
                 name="home"
                 style={
-                  activeTab === HOME
+                  activeTab === SIGNIN
                     ? styles.IconColor //if it is clicked make the Icon red
                     : styles.defaultColor // if it is not clicked make the Icon color grey
                 }
               />
 
               <Text
-                style={[activeTab === HOME
+                style={[activeTab === SIGNIN
                   ? styles.IconColor
                   : styles.defaultColor,
                     styles.Text]}

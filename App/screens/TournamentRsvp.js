@@ -22,6 +22,8 @@ class TournamentRsvp extends React.Component {
     } = this.props;
     const uri =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVuX0uaDPSwnfS_Rue4cKqk7EhmXDqzpKl9MYeEWZiK9k6NtepIg';
+    console.log(this.props.navigation.state.params.product)
+    const product = this.props.navigation.state.params.product
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
         <View

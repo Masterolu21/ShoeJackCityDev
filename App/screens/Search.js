@@ -43,7 +43,7 @@ class Search extends React.Component {
 
     const snapshot = await firebase.database().ref('products/').once('value')
     const products = snapshot.val()
-    console.log('products: ', products)
+    // console.log('products: ', products)
     const items = []
     for (const product in products) {
       items.push(products[product])
@@ -94,7 +94,6 @@ class Search extends React.Component {
     const {
       navigation: { navigate }
     } = this.props;
-
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
         <View style={[styles.Header, { height: height * 0.1, ...ifIphoneX({ marginTop: 50 }, { marginTop: 30 })}]}>
@@ -128,9 +127,9 @@ class Search extends React.Component {
           data={items}
           keyExtractor={(product) => product.name}
           renderItem={product => (
-              <TouchableOpacity onPress={() => navigate('TournamentRsvp')} style={{ width: '50%', height: 150 }}>
+              <TouchableOpacity onPress={() => navigate('TournamentRsvp', { product })} style={{ width: '50%', height: 150 }}>
                 <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-                  <Image source={{ uri: product.item.imageSource }} resizeMode={'contain'} style={{ flex: 3 }} />
+                  <Image source={{ uri: `${product.item.imageSource}_small.jpg` }} resizeMode={'contain'} style={{ flex: 3 }} />
                   <View style={{ height: 30, flexDirection: 'column', justifyContent: 'center' }}>
                     <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, padding: 4 }}>{product.item.name}</Text>
                   </View>

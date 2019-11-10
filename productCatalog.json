@@ -1,4 +1,4 @@
-curl -X PUT -d '{
+{
   "kylanProduct1": {
     "name": "KylanProduct 1",
     "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
@@ -88,5 +88,21 @@ curl -X PUT -d '{
     "name": "KylanProduct 18",
     "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
     "price": 99.99
+  },
+  "kylanProduct19": {
+    "name": "KylanProduct 19",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct20": {
+    "name": "KylanProduct 20",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct21": {
+    "name": "KylanProduct 21",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
   }
-}' 'https://shoejackcity-729f9.firebaseio.com/products.json'
+
+}

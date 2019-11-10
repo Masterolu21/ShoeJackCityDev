@@ -1,0 +1,1 @@
+cat productCatalog.json | curl -H "Content-Type: application/json" -X PUT -d "$(</dev/stdin)" https://shoejackcity-729f9.firebaseio.com/products.json

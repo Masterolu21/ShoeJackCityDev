@@ -131,7 +131,8 @@ class Search extends React.Component {
                 <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
                   <Image source={{ uri: `${product.item.imageSource}_small.jpg` }} resizeMode={'contain'} style={{ flex: 3 }} />
                   <View style={{ height: 30, flexDirection: 'column', justifyContent: 'center' }}>
-                    <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, padding: 4 }}>{product.item.name}</Text>
+                    <Text style={{ fontWeight: 'bold', textAlign: 'center', color: 'black', fontSize: 10 }}>{product.item.name}</Text>
+                    <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, color: '#444444' }}>${product.item.price}</Text>
                   </View>
                 </View>
               </TouchableOpacity>

@@ -27,8 +27,8 @@ class TournamentRsvp extends React.Component {
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
         <View
-style={{ flexDirection: 'row',
-...ifIphoneX(
+          style={{ flexDirection: 'row',
+          ...ifIphoneX(
                   {
                     marginTop: 40
                   },
@@ -93,18 +93,12 @@ style={{ flexDirection: 'row',
 
         </View>
         <View style={{ top: 20 }}>
-        <ColorPalette
-            onChange={color => (selectedColor = color)}
-            value={selectedColor}
-            colors={['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD']}
-            text={<Text>✔</Text>}
-        />
-          </View>
-        <View
-style={{ flexDirection: 'row',
-alignItems: 'flex-end',
-flex: 1,
-...ifIphoneX(
+      </View>
+      <View
+        style={{ flexDirection: 'row',
+        alignItems: 'flex-end',
+        flex: 1,
+        ...ifIphoneX(
                   {
                     marginBottom: 15
                   },

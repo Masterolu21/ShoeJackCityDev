@@ -93,6 +93,11 @@ class TournamentRsvp extends React.Component {
 
         </View>
         <View style={{ top: 20 }}>
+          <ColorPalette
+            onChange={color => (selectedColor = color)}
+            value={selectedColor}
+            colors={['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD']}
+            text={<Text>✔</Text>} />
       </View>
       <View
         style={{ flexDirection: 'row',

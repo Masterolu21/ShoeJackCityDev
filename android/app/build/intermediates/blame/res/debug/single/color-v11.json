@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    }
+]

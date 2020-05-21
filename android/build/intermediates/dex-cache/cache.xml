@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/7025f05278a5449435d02250c3660b38fa6bb99e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="e7a850c25a7efbd533c496ab482c980fdafac58d">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_37b5cfcb01c91346b22c71d3646dc28fa47f671b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.14.0/102d7be47241d781ef95f1581d414b0943053130/okio-1.14.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="102d7be47241d781ef95f1581d414b0943053130">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/okio-1.14.0_a4c078bfe12696c2868bf31780e8fa391972307f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/4314d86ddd964a7e45a4abbb40d7c73945dde918/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_c2fe6021b350b526dce6dd89ec7e59c19978462a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_b17488da8b2db4a3e1c4fbd3b84a806ee5ab2baf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/ff89796c7455dd8da65d0414f494c8844581d543/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_3f477938fe5a898fa0b07931b12ced97c6c5090a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/684305ddf7248b593269c8949b0696ab7207a06e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f80a752d1333efd4fb9b87da63e73909acb151af">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_da9e3a67922549ec657930175155e3fe61ed13f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/59746b9dc0f0ea94a525e32714239ece75504efc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="87382214d92be4e3c931cb6aa7aa4e827bc179b7">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_4e08b5271e04ab30e70ccea2b53f74a67e6bb9fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="0814258103cf26a15fcc26ecce35f5b7d24b73f8">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/support-annotations-26.1.0_7db86cff67f1082a612a6f89fc2de388227dc525.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/251d710a80bf05d9459216a499a07f5941590b43/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_82a1c34be8944d535d290a4a813c914766978770.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/157c86d2f4dad3359291f40af35f823b09bba4cf/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_0715d710f9aa979fb301a9e383ae40fcc6f3b18a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_040ae7fb46f4e03c446c07f6b09cf8d4a9c23f69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_1460c71ceb214ff92787659d404aaebed447180d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/47105ed7da4fda2e3c34d90fa6ae42ee520ca676/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_7f4666db56ff0a1ba6de502c8635cab3e3d6d1fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_f9c995a8eff0892d43c7754c9d7b44ee92a32c47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.10.0/7ef0f1d95bf4c0b3ba30bbae25e0e562b05cf75e/okhttp-3.10.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="7ef0f1d95bf4c0b3ba30bbae25e0e562b05cf75e">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/okhttp-3.10.0_83c6294526f8ee4b3534f635b2f1ef5a255b03df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/node_modules/react-native-vector-icons/android/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_0d2b96a986f4173d8fe9848f0ffe2a343ad0d94a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.10.0/ec614c05825ddd2267677a99f585d3913474b125/okhttp-urlconnection-3.10.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="ec614c05825ddd2267677a99f585d3913474b125">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.10.0_25f2784ac53de8eb6e5deb5f4eba8d621db60202.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/9f18fb6cecd67109611b20b75d97eaa63b2e8387/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_297827467175e773c13ec0dd20d34861248b0de5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/62186404f47aaccd038257b2eaf986e194e90605/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="1c9837ec75b2273699379c2ba0ae63d669b4f08c">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_9814f742841da344d821989741f0c5a9b2fa386a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/86410e153579f5cf25e269573e12fa7f14a70d09/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="da59c80e4a1c8df62d2b4188ef3efddab8afa236">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_e6431baefab3751b6badd438e87685004ce12602.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/781806bb4006d31363d65cbaa2d90121ee61ef9f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="ae15c560bc6685007440d8a70686f8348bafd791">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_89a18c17785edb3fbe9b69d4c6ac6042264f47d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/908b62184b939d46effbd45f42cad351b42e4866/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_d87719bb747dccc961a7a5e428037d252a476335.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/fb0c4bd60cc54fa3ddf582f3bbfdf69ad3e377c1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_571f14da12a43629cf64cf478ef7bc91b38c1463.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_80339d9f76bd359be24f20f1a0be3db69b266c5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/0cb6d2af3b1487c3ee04ea4e3446374d51273b5d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_1506368146746317df0a7cf45e0c00cc8371a811.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/7025f05278a5449435d02250c3660b38fa6bb99e/output/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_4c2cdef60063d31ab55996f4f12a67b650ccf0b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_f9dab2068d3208b861e37cd18e3dc15303c67fdf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/e1c47de5905184fad31dc677597e3e310bc8a043/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="9803a14716e9f462afb5742811f3456c39f3be3a">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_83d4f690c2564aa87bdaf931bdb8cae57fd141a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/a66d8e37f6f55d33fbe5b43d586605a216f3ca16/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_43bbbad3cf9104d39a3bfd2918e67341423cbe50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/1e995a53e778f3ae1feca1c142403aef7b35b2f7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="dc6c0959ecc7b21932675183573b2bcecf2687b9">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_295cddd2e8cd07fbd2329faf21afd744e2b11629.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/ghazal/.android/build-cache/db3741dd7b9a4025bf3d803af97dcfff6e28c6c6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="/home/ghazal/Documents/Shoejackcity/ShoeJackCity/android/app/build/intermediates/pre-dexed/debug/classes_e8312c8ab0f2a08803d803008cdf487ac54e006d.jar" />
+    </item>
+
+</items>

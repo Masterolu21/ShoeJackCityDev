@@ -1,0 +1,92 @@
+curl -X PUT -d '{
+  "kylanProduct1": {
+    "name": "KylanProduct 1",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct2": {
+    "name": "KylanProduct 2",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct3": {
+    "name": "KylanProduct 3",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct4": {
+    "name": "KylanProduct 4",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct5": {
+    "name": "KylanProduct 5",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct6": {
+    "name": "KylanProduct 6",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct7": {
+    "name": "KylanProduct 7",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct8": {
+    "name": "KylanProduct 8",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct9": {
+    "name": "KylanProduct 9",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct10": {
+    "name": "KylanProduct 10",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct11": {
+    "name": "KylanProduct 11",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct12": {
+    "name": "KylanProduct 12",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct13": {
+    "name": "KylanProduct 13",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct14": {
+    "name": "KylanProduct 14",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct15": {
+    "name": "KylanProduct 15",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct16": {
+    "name": "KylanProduct 16",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct17": {
+    "name": "KylanProduct 17",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  },
+  "kylanProduct18": {
+    "name": "KylanProduct 18",
+    "imageSource": "http://www.datagoniaweb.com/wp-content/uploads/2019/11/AF1OW_Volt",
+    "price": 99.99
+  }
+}' 'https://shoejackcity-729f9.firebaseio.com/products.json'

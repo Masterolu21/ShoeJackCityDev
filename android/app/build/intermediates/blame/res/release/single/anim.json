@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_slide_down.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_slide_down.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_slide_up.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_slide_up.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/tooltip_enter.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/tooltip_enter.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_fade_out.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_fade_out.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_push_up_out.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_push_up_in.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/tooltip_exit.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/tooltip_exit.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/catalyst_fade_in.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/fff9fd38bc762e0a5a891bc9dcde1341/res/anim/catalyst_fade_in.xml"
+    },
+    {
+        "merged": "/home/ghazal/Documents/ShoeJackCity/shoejack-city/android/app/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
+        "source": "/home/ghazal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/ab4db3a9ffdedd54ae2e1863a4c78f89/res/anim/abc_popup_exit.xml"
+    }
+]

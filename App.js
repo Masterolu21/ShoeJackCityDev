@@ -41,6 +41,7 @@ export default class App extends React.Component {
 
     render() {
       //If the state is not ready then display the apploading oterwise display the app
+      console.log(this.state.isRady, '****');
       if (!this.state.isReady) {
           return (
             <AppLoading

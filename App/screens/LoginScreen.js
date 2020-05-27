@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     View,
-    Image,
     Text,
     Dimensions,
     StyleSheet,
@@ -9,6 +8,7 @@ import {
     Alert,
     TextInput
   } from 'react-native';
+import Svg, { Image, Circle, ClipPath } from 'react-native-svg';
 import Animated, { Easing } from 'react-native-reanimated';
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
 import { AppLoading } from 'expo';
@@ -56,7 +56,8 @@ const { Value,
   timing,
   clockRunning,
   interpolate,
-  Extrapolate } = Animated;
+  Extrapolate,
+  concat } = Animated;
 
 function runTiming(clock, value, dest) {
   const state = {
@@ -96,6 +97,7 @@ class LoginScreen extends React.Component {
       //     email: '',
       //     password: ''
       // };
+
       this.buttonOpacity = new Value(1);
       this.onStateChange = event([
         {
@@ -105,58 +107,94 @@ class LoginScreen extends React.Component {
       ])
       }
   ]);
-    this.butttonY = interpolate(this.buttonOpacity, {
+
+  this.onCloseState = event([
+    {
+    nativeEvent: ({ state }) =>
+    block([cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 0, 1))
+    )
+  ])
+  }
+]);
+
+
+    this.buttonY = interpolate(this.buttonOpacity, {
     inputRange: [0, 1],
     outputRange: [100, 0],
-    //extrapolate: Extrapolate.CLAMP
+    extrapolate: Extrapolate.CLAMP
     });
+
 
     this.bgY = interpolate(this.buttonOpacity, {
     inputRange: [0, 1],
     outputRange: [-height / 3, 0],
-    //extrapolate: Extrapolate.CLAMP
+    extrapolate: Extrapolate.CLAMP
     });
-    console.log(Animated);
+
+    this.textInputZIndex = interpolate(this.buttonOpacity, {
+      inputRange: [0, 1],
+      outputRange: [1, -1],
+      extrapolate: Extrapolate.CLAMP
+    });
+
+    this.textInputY = interpolate(this.buttonOpacity, {
+      inputRange: [0, 1],
+      outputRange: [1, 0],
+      extrapolate: Extrapolate.CLAMP
+    });
+    this.textInputOpacity = interpolate(this.buttonOpacity, {
+      inputRange: [0, 1],
+      outputRange: [1, 0],
+      extrapolate: Extrapolate.CLAMP
+    });
+    this.rotateCross = interpolate(this.buttonOpacity, {
+      inputRange: [0, 1],
+      outputRange: [180, 360],
+      extrapolate: Extrapolate.CLAMP
+    });
   }
 
 render() {
+  console.log(this.buttonY, '-----******');
   const {
       navigation: { navigate }
   } = this.props;
+
   return (
       <View style={styles.container}>
         <Animated.View
         style={{ ...StyleSheet.absoluteFill,
         transform: [{ translateY: this.bgY }] }}
         >
+        <Svg height={height} width={width}>
         <Image
-          source={require('../assets/Images/TemplatePic.jpg')}
-          style={{ flex: 1, height: null, width: null }}
-          resizeMode="cover"
+          href={require('../assets/Images/TemplatePic.jpg')}
+          width={width}
+          height={height}
         />
+        </Svg>
         </Animated.View>
         <View style={{ height: height / 3 }} />
         <TouchableOpacity>
-          <TapGestureHandler onHandlerStateChange={this.onStateChange}>
+          <TapGestureHandler onHandlerStateChange={this.onStateChange} >
           <Animated.View
-            style={[
+          style={[
 
-              styles.signupbutton,
-              commonStyles.alignSelfcenter,
+            styles.signupbutton,
+            commonStyles.alignSelfcenter,
+            {
+              opacity: this.buttonOpacity,
+              transform: [{ translateY: this.buttonY }],
+              width: width * 0.73
+            }
 
-              {
-                opacity: this.buttonOpacity,
-                transform: [{ translateY: this.buttonY }],
-                width: width * 0.73
-              }
-            ]}
+          ]}
           >
             <Text style={[styles.signuptextbutton]}>Sign Up</Text>
           </Animated.View>
           </TapGestureHandler>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.onSubmit()}>
-          <TapGestureHandler onHandlerStateChange>
+          <TouchableOpacity>
           <Animated.View
             style={[
               styles.loginbutton,
@@ -171,8 +209,52 @@ render() {
           >
             <Text style={[styles.logintextbutton]}>Log In</Text>
           </Animated.View>
-          </TapGestureHandler>
         </TouchableOpacity>
+        <Animated.View
+          style={{
+            zIndex: this.textInputZindex,
+            opacity: this.textInputOpacity,
+            transform: [{ translateY: this.textInputY }],
+            height: height / 3,
+          ...StyleSheet.absoluteFill,
+          top: null,
+          justifyContent: 'center' }}
+        >
+        <TapGestureHandler onHandlerStateChange={this.onCloseState}>
+          <Animated.View style={styles.closeButton}>
+            <Animated.Text
+              style={{ fontSize: 15,
+              transform: [{ rotate: concat(this.rotateCross, 'deg') }]
+            }}
+            >
+            X
+            </Animated.Text>
+          </Animated.View>
+        </TapGestureHandler>
+        <TextInput
+        style={styles.inputText}
+        icon="email"
+        placeholder="Email"
+        autoCapitalize="none"
+        //value={this.state.email}
+        //onChangeText={email => this.setState({ email })}
+        />
+        <TextInput
+        style={styles.inputText}
+        icon="lock"
+        placeholder="Password"
+        autoCapitalize="none"
+        //value={this.state.password}
+        //onChangeText={password => this.setState({ password })}
+        secureTextEntry
+        />
+        <Animated.View style={styles.button}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+          SignUp
+          </Text>
+        </Animated.View>
+          </Animated.View>
+
       </View>
 
   );
@@ -183,7 +265,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flex: 1,
-    backgroundColor: 'red',
     justifyContent: 'center'
   },
   loginbutton: {
@@ -225,7 +306,44 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     color: 'white',
     fontFamily: 'Helvetica-Bold'
-  }
+  },
+  button: {
+    backgroundColor: 'white',
+    height: 70,
+    marginHorizontal: 20,
+    borderRadius: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowColor: 'black'
+  },
+  closeButton: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    top: -20,
+    left: ((width / 2) - 20),
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowColor: 'black'
+  },
+  inputText: {
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 0.5,
+    marginLeft: 20,
+    marginRight: 20,
+    paddingLeft: 10,
+    marginTop: 5,
+    borderColor: 'rgba(0,0,0,0.2)',
+
+  },
 });
 
 export default LoginScreen;

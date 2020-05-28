@@ -15,6 +15,8 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { Tab, Tabs, Header } from 'native-base';
 import { commonStyles } from './styles/styles';
+import SignUp from './SignUp';
+import SignIn from './SignInScreen';
 import { FontAwesome as Icon } from '@expo/vector-icons';
 import FBSDK, { LoginManager } from 'react-native-fbsdk';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
@@ -57,6 +59,7 @@ const { Value,
   clockRunning,
   interpolate,
   Extrapolate,
+  call,
   concat } = Animated;
 
 function runTiming(clock, value, dest) {
@@ -91,31 +94,39 @@ function runTiming(clock, value, dest) {
 class LoginScreen extends React.Component {
 
   constructor(props) {
-      super(props);
-      // this.spinValue = new Animated.Value(0);
-      // this.state = {
-      //     email: '',
-      //     password: ''
-      // };
+    super(props);
+    // this.spinValue = new Animated.Value(0);
+    this.state = {
+      email: '',
+      password: '',
+      isSignUp: false,
+    };
 
-      this.buttonOpacity = new Value(1);
-      this.onStateChange = event([
-        {
+    this.buttonOpacity = new Value(1);
+    this.onStateChange = event([{
+      nativeEvent: ({ state }) =>
+        call([
+          block([
+            cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 1, 0)))
+          ])
+        ], () => { this.setState({ isSignUp: true }); })
+    }]);
+
+    this.onLoginStateChange = event([{
+      nativeEvent: ({ state }) =>
+        call([
+          block([
+            cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 1, 0)))
+          ])
+        ], () => { this.setState({ isSignUp: false }); })
+    }]);
+
+    this.onCloseState = event([
+      {
         nativeEvent: ({ state }) =>
-        block([cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 1, 0))
-        )
-      ])
+        block([cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 0, 1)))])
       }
-  ]);
-
-  this.onCloseState = event([
-    {
-    nativeEvent: ({ state }) =>
-    block([cond(eq(state, State.END), set(this.buttonOpacity, runTiming(new Clock(), 0, 1))
-    )
-  ])
-  }
-]);
+    ]);
 
 
     this.buttonY = interpolate(this.buttonOpacity, {
@@ -154,111 +165,112 @@ class LoginScreen extends React.Component {
     });
   }
 
-render() {
-  console.log(this.buttonY, '-----******');
-  const {
-      navigation: { navigate }
-  } = this.props;
+  render() {
+    const {
+        navigation: { navigate }
+    } = this.props;
 
-  return (
+    return (
       <View style={styles.container}>
         <Animated.View
-        style={{ ...StyleSheet.absoluteFill,
-        transform: [{ translateY: this.bgY }] }}
+          style={{ ...StyleSheet.absoluteFill,
+          transform: [{ translateY: this.bgY }] }}
         >
-        <Svg height={height} width={width}>
-        <Image
-          href={require('../assets/Images/TemplatePic.jpg')}
-          width={width}
-          height={height}
-        />
-        </Svg>
+          <Svg height={height} width={width}>
+            <Image
+              href={require('../assets/Images/TemplatePic.jpg')}
+              width={width}
+              height={height}
+              preserveAspectRatio="xMidYMid slice"
+            />
+          </Svg>
         </Animated.View>
-        <View style={{ height: height / 3 }} />
-        <TouchableOpacity>
-          <TapGestureHandler onHandlerStateChange={this.onStateChange} >
-          <Animated.View
-          style={[
-
-            styles.signupbutton,
-            commonStyles.alignSelfcenter,
-            {
-              opacity: this.buttonOpacity,
-              transform: [{ translateY: this.buttonY }],
-              width: width * 0.73
-            }
-
-          ]}
-          >
-            <Text style={[styles.signuptextbutton]}>Sign Up</Text>
-          </Animated.View>
+        {/* <View style={{ height: height / 3 }} /> */}
+        <Animated.View
+          style={{
+            zIndex: this.textInputZindex,
+            opacity: this.textInputOpacity,
+            transform: [{ translateY: this.textInputY }],
+            height: height / 1.4,
+            ...StyleSheet.absoluteFill,
+            top: null,
+            justifyContent: 'center',
+          }}
+        >
+          {/* <SignUp navigation={this.props.navigation} /> */}
+          {this.state.isSignUp
+          ? <SignUp navigation={this.props.navigation} />
+          : <SignIn navigation={this.props.navigation} />}
+          <TapGestureHandler onHandlerStateChange={this.onCloseState}>
+            <Animated.View style={styles.closeButton}>
+              <Animated.Text
+                style={{
+                  fontSize: 15,
+                  transform: [{ rotate: concat(this.rotateCross, 'deg') }]
+                }}
+              >X</Animated.Text>
+            </Animated.View>
           </TapGestureHandler>
-          </TouchableOpacity>
-          <TouchableOpacity>
-          <Animated.View
+          {/* <TextInput
+            style={styles.inputText}
+            icon="email"
+            placeholder="Email"
+            autoCapitalize="none"
+            //value={this.state.email}
+            //onChangeText={email => this.setState({ email })}
+          />
+          <TextInput
+            style={styles.inputText}
+            icon="lock"
+            placeholder="Password"
+            autoCapitalize="none"
+            //value={this.state.password}
+            //onChangeText={password => this.setState({ password })}
+            secureTextEntry
+          />
+          <Animated.View style={styles.button}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+              SignUp
+            </Text>
+          </Animated.View> */}
+        </Animated.View>
+        <TouchableOpacity>
+          <TapGestureHandler onHandlerStateChange={this.onStateChange}>
+            <Animated.View
             style={[
-              styles.loginbutton,
+              styles.signupbutton,
               commonStyles.alignSelfcenter,
-
               {
                 opacity: this.buttonOpacity,
                 transform: [{ translateY: this.buttonY }],
                 width: width * 0.73
               }
             ]}
-          >
-            <Text style={[styles.logintextbutton]}>Log In</Text>
-          </Animated.View>
-        </TouchableOpacity>
-        <Animated.View
-          style={{
-            zIndex: this.textInputZindex,
-            opacity: this.textInputOpacity,
-            transform: [{ translateY: this.textInputY }],
-            height: height / 3,
-          ...StyleSheet.absoluteFill,
-          top: null,
-          justifyContent: 'center' }}
-        >
-        <TapGestureHandler onHandlerStateChange={this.onCloseState}>
-          <Animated.View style={styles.closeButton}>
-            <Animated.Text
-              style={{ fontSize: 15,
-              transform: [{ rotate: concat(this.rotateCross, 'deg') }]
-            }}
             >
-            X
-            </Animated.Text>
-          </Animated.View>
-        </TapGestureHandler>
-        <TextInput
-        style={styles.inputText}
-        icon="email"
-        placeholder="Email"
-        autoCapitalize="none"
-        //value={this.state.email}
-        //onChangeText={email => this.setState({ email })}
-        />
-        <TextInput
-        style={styles.inputText}
-        icon="lock"
-        placeholder="Password"
-        autoCapitalize="none"
-        //value={this.state.password}
-        //onChangeText={password => this.setState({ password })}
-        secureTextEntry
-        />
-        <Animated.View style={styles.button}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
-          SignUp
-          </Text>
-        </Animated.View>
-          </Animated.View>
-
+              <Text style={[styles.signuptextbutton]}>Sign Up</Text>
+            </Animated.View>
+          </TapGestureHandler>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <TapGestureHandler onHandlerStateChange={this.onLoginStateChange}>
+            <Animated.View
+              style={[
+                styles.loginbutton,
+                commonStyles.alignSelfcenter,
+                {
+                  opacity: this.buttonOpacity,
+                  transform: [{ translateY: this.buttonY }],
+                  width: width * 0.73
+                }
+              ]}
+            >
+              <Text style={[styles.logintextbutton]}>Log In</Text>
+            </Animated.View>
+          </TapGestureHandler>
+        </TouchableOpacity>
       </View>
-
-  );
-}
+    );
+  }
 }
 
 const styles = StyleSheet.create({

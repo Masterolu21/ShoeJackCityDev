@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   SearchBarText: {
     padding: 5,
     flexDirection: 'row',
-    fontFamily: 'Helvetica',
+    //fontFamily: 'Helvetica',
     alignItems: 'center',
     fontSize: 16,
   },

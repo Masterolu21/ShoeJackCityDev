@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       justifyContent: 'center',
       color: 'white',
-      fontFamily: 'Helvetica-Bold'
+      //fontFamily: 'Helvetica-Bold'
     }
   });
 

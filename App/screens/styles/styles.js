@@ -897,32 +897,32 @@ top:20
     fontSize: 16,
     textAlign: 'center',
     color: '#d6d6e2',
-    fontFamily: 'Helvetica-Bold'
+    //fontFamily: 'Helvetica-Bold'
   },
   signtextbutton: {
     fontSize: 16,
     textAlign: 'center',
     color: '#5E6764',
-    fontFamily: 'HelveticaNeue-Bold'
+    //fontFamily: 'HelveticaNeue-Bold'
   },
   logintextbutton: {
     fontSize: 12,
     textAlign: 'center',
     color: '#d6d6e2',
-    fontFamily: 'HelveticaNeue-Bold'
+    //fontFamily: 'HelveticaNeue-Bold'
   },
   facebooktextbutton: {
     fontSize: 16,
     textAlign: 'center',
     color: 'white',
-    fontFamily: 'HelveticaNeue-Bold'
+    //fontFamily: 'HelveticaNeue-Bold'
   },
   googletextbutton: {
     fontSize: 16,
     textAlign: 'center',
     justifyContent: 'center',
     color: 'white',
-    fontFamily: 'HelveticaNeue-Bold'
+    //fontFamily: 'HelveticaNeue-Bold'
   },
   fbbutton: {
     width: 320,

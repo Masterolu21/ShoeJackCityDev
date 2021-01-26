@@ -41,7 +41,7 @@ export default class App extends React.Component {
 
     render() {
       //If the state is not ready then display the apploading oterwise display the app
-      console.log(this.state.isRady, '****');
+      console.log(this.state.isReady, '****');
       if (!this.state.isReady) {
           return (
             <AppLoading
@@ -54,7 +54,8 @@ export default class App extends React.Component {
       return (
         <View style={styles.background}>
           <Provider store={store}>
-            <LoginScreen navigation={{ navigate: () => {} }} />
+            {/* <LoginScreen navigation={{ navigate: () => {} }} /> */}
+            <RootStack/>
           </Provider>
         </View>
       );
@@ -66,7 +67,6 @@ export default class App extends React.Component {
         flex: 1,
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
-        alignItems: 'center',
         fontSize: 16
       },
       textStyle: {

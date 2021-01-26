@@ -358,9 +358,9 @@ class SignInScreen extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-              <View style={[commonStyles.flex1, commonStyles.justifyEnd]}>
+              {/* <View style={[commonStyles.flex1, commonStyles.justifyEnd]}>
                 <Footer navigation={this.props.navigation} />
-              </View>
+              </View> */}
             </View>
         );
     }
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#000000',
         fontSize: 16,
-        fontFamily: 'Helvetica'
+        //fontFamily: 'Helvetica'
     },
     ColorText: {
         color: '#BA55D3'
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
       fontWeight: '500',
       marginLeft: 40,
       fontSize: 16,
-      fontFamily: 'Helvetica',
+      //fontFamily: 'Helvetica',
       justifyContent: 'center'
 
     },
@@ -422,7 +422,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       justifyContent: 'center',
       color: 'white',
-      fontFamily: 'Helvetica-Bold'
+      //fontFamily: 'Helvetica-Bold'
     },
     buttonText: {
         fontSize: 16,

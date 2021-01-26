@@ -310,14 +310,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     color: 'black',
-    fontFamily: 'Helvetica-Bold'
+    //fontFamily: 'Helvetica-Bold'
   },
   signuptextbutton: {
     fontSize: 16,
     textAlign: 'center',
     justifyContent: 'center',
     color: 'white',
-    fontFamily: 'Helvetica-Bold'
+    //fontFamily: 'Helvetica-Bold'
   },
   button: {
     backgroundColor: 'white',

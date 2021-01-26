@@ -158,19 +158,19 @@ style={[commonStyles.alignSelfcenter, {
 const styles = StyleSheet.create({
   TextColor: {
     color: 'black',
-    fontFamily: 'Helvetica',
+    //fontFamily: 'Helvetica',
     fontSize: 16
   },
   tabText: {
     color: 'black',
-    fontFamily: 'Helvetica',
+    //fontFamily: 'Helvetica',
     fontSize: 18,
     marginLeft: 20
   },
   logOutText: {
     fontSize: 18,
     color: 'red',
-    fontFamily: 'Helvetica',
+    //fontFamily: 'Helvetica',
     fontSize: 18,
     marginRight: 10
   },
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   fontStyle: {
-    fontFamily: 'Helvetica',
+    //fontFamily: 'Helvetica',
     alignItems: 'center',
     justifyContent: 'center'
   },

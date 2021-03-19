@@ -1,16 +1,25 @@
 import React from 'react';
-import { View, Text, Dimensions, TouchableOpacity, Image } from 'react-native';
-import {MaterialIcons as Icon} from '@expo/vector-icons';
+import { View, Text, Dimensions, TouchableOpacity, Image, FlatList } from 'react-native';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 import Rating from 'react-native-easy-rating';
 import { commonStyles } from './styles/styles';
 import image from '../assets/Images/Air_Force_1_Low_Off-White_Volt.png';
 import ColorPalette from 'react-native-color-palette';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
+import { showCustomAlert } from '../utils/index'
+import { showMessage, hideMessage } from "react-native-flash-message";
+import moment from 'moment'
+
+const sizes = [
+  '5', '5.5', '6', '6.5', '7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5',
+  '11', '11.5', '12', '12.5', '13', '13.5', '14', '14.5', '15', '15.5', '16'
+]
 
 class TournamentRsvp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedSize: '5',
       rating: ''
     };
   }
@@ -22,21 +31,23 @@ class TournamentRsvp extends React.Component {
     } = this.props;
     const uri =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVuX0uaDPSwnfS_Rue4cKqk7EhmXDqzpKl9MYeEWZiK9k6NtepIg';
-    console.log(this.props.navigation.state.params.product)
-    const product = this.props.navigation.state.params.product
+
+    const { time, product } = this.props.navigation.state.params
+    const { selectedSize } = this.state
     return (
-      <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
+      <View style={[{ width, height, backgroundColor: '#FFFFFF' }]}>
         <View
-style={{ flexDirection: 'row',
-...ifIphoneX(
-                  {
-                    marginTop: 40
-                  },
-                  {
-                    marginTop: 20
-                  }
-                )
-               }}
+          style={{
+            flexDirection: 'row',
+            ...ifIphoneX(
+              {
+                marginTop: 40
+              },
+              {
+                marginTop: 20
+              }
+            )
+          }}
         >
           <Icon
             onPress={() => {
@@ -56,7 +67,10 @@ style={{ flexDirection: 'row',
         </View>
         <View style={[commonStyles.mt10]}>
           <Image
-            source={image}
+            // source={image}
+            source={{
+              uri: product.imageSource
+            }}
             resizeMode={'contain'}
             style={[
               commonStyles.alignSelfcenter,
@@ -69,93 +83,81 @@ style={{ flexDirection: 'row',
         </View>
         <View style={{ marginLeft: 30 }}>
           <Text
-            style={[commonStyles.textBold, commonStyles.font20, {color: 'black'}, {
+            style={[commonStyles.textBold, commonStyles.font20, { color: 'black' }, {
 
               width: 200,
 
             }]}
-          >
-            Air Force 1 Low Off-White Volt
-          </Text>
-          <Text style={[commonStyles.mt10, { color: 'black' }]}>
-            COLORWAY: VOLT/HYPER JADE-CONE-BLACK{' '}
+          >{product.name}</Text>
+          <Text style={[commonStyles.mt10, { marginBottom: product.colorway && 10, color: 'black' }]}>
+            {product.colorway && `COLORWAY: ${product.colorway}` || ""}
           </Text>
           <Rating
             rating={Math.round(this.state.rating)}
             max={5}
-            iconWidth={20}
-            iconHeight={20}
+            iconWidth={30}
+            iconHeight={30}
           />
-          <Text style={[commonStyles.mt30, { color: 'black' }]}>
-            Be more lit than a lightning bolt while wearing Nike and Virgil’s Air Force 1 Low Off-White Volt. This AF1 comes with a volt upper, black Nike “Swoosh”, volt midsole, and volt sole.
-          </Text>
-          <Text style={[commonStyles.mt10, { color: 'black' }]}>Color Avalible</Text>
-
+          <Text style={[commonStyles.mt30, { color: 'black', fontSize: 16 }]}>{product.description}</Text>
         </View>
-        <View style={{ top: 20 }}>
-        <ColorPalette
-            onChange={color => (selectedColor = color)}
-            value={selectedColor}
-            colors={['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD']}
-            text={<Text>✔</Text>}
-        />
-          </View>
-        <View
-style={{ flexDirection: 'row',
-alignItems: 'flex-end',
-flex: 1,
-...ifIphoneX(
-                  {
-                    marginBottom: 15
-                  },
-                  {
-                    marginBottom: 0
-                  }
-                ) }}
+        <TouchableOpacity
+          style={commonStyles.rsvpbutton}
+          onPress={() => {
+            showCustomAlert(
+              'Would you like to RSVP for this tournament.',
+              '',
+              "Yes",
+              "No",
+              () => { },
+              () => {
+                showMessage({
+                  message: "Air Force 1 Low Off-White Volt",
+                  description: `Tournament Starts at ${time}, ${moment().format('MMMM DD, YYYY')}`,
+                  type: "success",
+                });
+              }
+            )
+          }}
         >
-          <TouchableOpacity>
-            <View
-              style={[
-                commonStyles.rsvpbutton,
-                commonStyles.row,
-                commonStyles.alignItemscenter,
-                commonStyles.justifyCenter,
-                {
-
-                  borderTopRightRadius: 15,
-
-                }
-              ]}
-            >
-              <Text style={[commonStyles.rsvpbuttonText]}>RSVP</Text>
-              <Icon
-                name="arrow-forward"
-                type="MaterialIcons"
-                style={[
-                  commonStyles.fontsize22,
-                  commonStyles.ml10,
-                  commonStyles.textwhite
-
-                ]}
-              />
-            </View>
-          </TouchableOpacity>
-          <View
+          <Text style={[commonStyles.rsvpbuttonText]}>RSVP</Text>
+          <Icon
+            name="arrow-forward"
+            type="MaterialIcons"
             style={[
-              commonStyles.rsvpbutton2,
-              commonStyles.alignCenter,
-              commonStyles.justifyCenter,
+              commonStyles.fontsize22,
+              commonStyles.ml10,
+              commonStyles.textwhite
 
             ]}
-          >
-            <Text
-              style={[commonStyles.textBold, commonStyles.font20, commonStyles.textAligncenter, { color: 'black' },]}
-            >
-              $ 165.00
-            </Text>
-            <Text style={[{ color: 'black' }, commonStyles.font10]}>*Free Shipping</Text>
-          </View>
+          />
+        </TouchableOpacity>
+        {/* <View style={{ marginTop: 30 }}></View> */}
+        <View style={{ position: 'absolute', bottom: 30 }}>
+          <FlatList
+            style={{ backgroundColor: '#000000f2', }}
+            showsHorizontalScrollIndicator={false}
+            data={sizes}
+            horizontal
+            renderItem={({ item: size }) => (
+              <TouchableOpacity
+                style={{
+                  paddingVertical: 20,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 80,
+                }}
+                onPress={() => { this.setState({ selectedSize: size }) }}
+              >
+                <Text style={{
+                  fontSize: 25,
+                  color: selectedSize == size ? "white" : '#7f7d80',
+                  fontWeight: selectedSize == size ? 'bold' : '400'
+                }}>{size}</Text>
+              </TouchableOpacity>
+            )}
+          />
         </View>
+
       </View>
     );
   }

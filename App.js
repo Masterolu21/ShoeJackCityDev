@@ -8,6 +8,7 @@ import { firebaseConfig } from './config.js';
 import RootStack from './RootStack';
 import LoginScreen from './App/screens/LoginScreen';
 import configureStore from './App/reducers/configureStore';
+import FlashMessage from "react-native-flash-message";
 
 firebase.initializeApp(firebaseConfig);
 // create store from redux
@@ -57,6 +58,7 @@ export default class App extends React.Component {
             {/* <LoginScreen navigation={{ navigate: () => {} }} /> */}
             <RootStack/>
           </Provider>
+          <FlashMessage position="top" />
         </View>
       );
     }

@@ -55,7 +55,7 @@ const routes = {
         screen: Inventory
     },
     Search: {
-      screen: Search
+        screen: Search
     }
 };
 
@@ -90,13 +90,13 @@ const AppStack = createStackNavigator(
             screen: EditUserInfo
         },
         ShopAttack: {
-          screen: ShopAttack
+            screen: ShopAttack
         },
         ShopDefend: {
-          screen: ShopDefend
+            screen: ShopDefend
         },
         ShopItems: {
-          screen: ShopItems
+            screen: ShopItems
         },
     },
     {
@@ -123,7 +123,7 @@ const AuthStack = createStackNavigator(
     }
 );
 
-export default createAppContainer(createSwitchNavigator(
+const App = createSwitchNavigator(
     {
         AuthLoading: AppStack,
         App: AppStack,
@@ -132,4 +132,5 @@ export default createAppContainer(createSwitchNavigator(
     {
         initialRouteName: 'AuthLoading',
     }
-));
+)
+export default createAppContainer(App);

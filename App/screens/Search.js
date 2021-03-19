@@ -17,6 +17,7 @@ import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { commonStyles } from './styles/styles';
 import image from '../assets/Images/Air_Force_1_Low_Off-White_Volt.png';
 import Footer from '../Components/Footer';
+import AppImage from '../Components/AppImage';
 import { SEARCH } from '../utils/constants';
 import firebase from 'firebase'
 
@@ -30,20 +31,19 @@ class Search extends React.Component {
       items: [],
       search: '',
       allItems: []
-   };
- }
+    };
+  }
 
   async componentDidMount() {
     this.keyboardDidShow = Keyboard.addListener('keyboardDidShow',
-    this.keyboardDidShow);
+      this.keyboardDidShow);
     this.keyboardWillShow = Keyboard.addListener('keyboardWillShow',
-    this.keyboardWillShow);
+      this.keyboardWillShow);
     this.keyboardWillHide = Keyboard.addListener('keyboardWillHide',
-    this.keyboardWillHide);
+      this.keyboardWillHide);
 
     const snapshot = await firebase.database().ref('products/').once('value')
     const products = snapshot.val()
-    // console.log('products: ', products)
     const items = []
     for (const product in products) {
       items.push(products[product])
@@ -96,13 +96,13 @@ class Search extends React.Component {
     } = this.props;
     return (
       <View style={[commonStyles.flex1, { backgroundColor: '#FFFFFF' }]}>
-        <View style={[styles.Header, { height: height * 0.1, ...ifIphoneX({ marginTop: 50 }, { marginTop: 30 })}]}>
+        <View style={[styles.Header, { height: height * 0.1, ...ifIphoneX({ marginTop: 50 }, { marginTop: 30 }) }]}>
           <View styles={styles.flexDirection}>
             <Animatable.View
               animation="slideInRight" duration={500} style={[styles.SearchBar, styles.SearchBarText,
               { height: height * 0.05 }]}>
               <Animatable.View animation={this.state.searchBarFocused ? 'fadeInLeft' : 'fadeInRight'} duration={400}>
-                <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ fontSize: 24 }} />
+                <Icon name={this.state.searchBarFocused ? 'md-arrow-back' : 'search'} style={{ marginLeft: 10, fontSize: 24 }} />
               </Animatable.View>
               <TextInput
                 placeholder="Search"
@@ -116,7 +116,13 @@ class Search extends React.Component {
               type="MaterialIcons"
               style={[
                 commonStyles.font26,
-                styles.TextColor]}
+                styles.TextColor,
+                {
+                  position: 'absolute',
+                  right: 10,
+                  top: 10
+                }
+              ]}
             />
           </View>
         </View>
@@ -127,15 +133,18 @@ class Search extends React.Component {
           data={items}
           keyExtractor={(product) => product.name}
           renderItem={product => (
-              <TouchableOpacity onPress={() => navigate('TournamentRsvp', { product })} style={{ width: '50%', height: 150 }}>
-                <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-                  <Image source={{ uri: `${product.item.imageSource}_small.jpg` }} resizeMode={'contain'} style={{ flex: 3 }} />
-                  <View style={{ height: 30, flexDirection: 'column', justifyContent: 'center' }}>
-                    <Text style={{ fontWeight: 'bold', textAlign: 'center', color: 'black', fontSize: 10 }}>{product.item.name}</Text>
-                    <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, color: '#444444' }}>${product.item.price}</Text>
-                  </View>
+            <TouchableOpacity onPress={() => navigate('TournamentRsvp', { product })} style={{ width: '50%', height: 150 }}>
+              <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+                <AppImage
+                  source={{ uri: product.item.imageSource || `${product.item.imageSource}_small.jpg` }}
+                  imageStyle={{ width: '100%', height: 100 }}
+                />
+                <View style={{ height: 30, flexDirection: 'column', justifyContent: 'center' }}>
+                  <Text style={{ fontWeight: 'bold', textAlign: 'center', color: 'black', fontSize: 10 }}>{product.item.name}</Text>
+                  <Text style={{ textAlign: 'center', color: 'black', fontSize: 10, color: '#444444' }}>${product.item.price}</Text>
                 </View>
-              </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           )}
         />
         <Footer navigation={this.props.navigation} activeTab={SEARCH} />
@@ -149,17 +158,17 @@ const styles = StyleSheet.create({
     color: '#000000'
   },
   Header: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     justifyContent: 'center',
     paddingHorizontal: 20
   },
   SearchBar: {
-    backgroundColor: 'white',
+    backgroundColor: '#f5f5f5',
     borderRadius: 20
   },
   flexDirection: {
     flexDirection: 'row',
-},
+  },
   SearchBarText: {
     padding: 5,
     flexDirection: 'row',

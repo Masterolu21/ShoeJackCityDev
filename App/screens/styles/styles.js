@@ -1,37 +1,41 @@
-export const homeStyles = {
-  forgotPassword: {
-    alignItems: 'center',
-    marginTop: 16
-  },
-  checkboxParent: {
-    flexDirection: 'row',
-    marginTop: 50
-  },
-  checkbox: {
-    marginRight: 16,
-    borderRadius: 0
-  }
-};
+import { StyleSheet } from 'react-native'
 
-export const cardStyles = {
-  card: {
-    marginTop: 20,
-    borderWidth: 0.5,
-    borderColor: 'lightgrey',
-    borderRadius: 5
-  },
-  cardImage: {
-    width: 150,
-    height: 150,
-    borderTopRightRadius: 5,
-    borderTopLeftRadius: 5
-  },
-  cardFooter: {
-    paddingVertical: 5
+export const homeStyles = StyleSheet.create(
+  {
+    forgotPassword: {
+      alignItems: 'center',
+      marginTop: 16
+    },
+    checkboxParent: {
+      flexDirection: 'row',
+      marginTop: 50
+    },
+    checkbox: {
+      marginRight: 16,
+      borderRadius: 0
+    }
   }
-};
+)
+export const cardStyles = StyleSheet.create(
+  {
+    card: {
+      marginTop: 20,
+      borderWidth: 0.5,
+      borderColor: 'lightgrey',
+      borderRadius: 5
+    },
+    cardImage: {
+      width: 150,
+      height: 150,
+      borderTopRightRadius: 5,
+      borderTopLeftRadius: 5
+    },
+    cardFooter: {
+      paddingVertical: 5
+    }
+  })
 
-export const commonStyles = {
+export const commonStyles = StyleSheet.create({
   header: {
     backgroundColor: 'white',
     marginTop: 20,
@@ -219,13 +223,19 @@ export const commonStyles = {
     width: 180,
     backgroundColor: 'transparent',
     paddingVertical: 12,
-    borderRadius: 5
+    borderRadius: 5,
   },
   rsvpbutton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:30,
+    alignSelf:'center',
     width: 180,
     backgroundColor: 'rgb(72, 244, 255)',
     paddingVertical: 20,
-    borderRadius: 5
+    borderRadius: 15,
+
   },
   rsvpbuttonText: {
     fontSize: 16,
@@ -326,7 +336,7 @@ export const commonStyles = {
   },
   bbw3: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgb(72, 244, 255)'
+    borderBottomColor: 'lightgray'
   },
   brw3: {
     borderRightWidth: 3,
@@ -593,11 +603,11 @@ export const commonStyles = {
     marginLeft: 16,
     marginTop: 30
   },
-  right10:{
-right:10
+  right10: {
+    right: 10
   },
-  top15:{
-top:15
+  top15: {
+    top: 15
   },
   errorText: {
     color: 'red',
@@ -655,13 +665,13 @@ top:15
     position: 'absolute'
   },
   bottom0: {
-    bottom:0
+    bottom: 0
   },
-  right0:{
-    right:0
+  right0: {
+    right: 0
   },
-  top20:{
-top:20
+  top20: {
+    top: 20
   },
   alignItemscenter: {
     alignItems: 'center'
@@ -863,7 +873,7 @@ top:20
   },
   facebookbutton: {
     width: 50,
-    height:50,
+    height: 50,
     backgroundColor: '#5054AE',
     paddingVertical: 10,
     marginBottom: 5,
@@ -983,12 +993,12 @@ top:20
   tournament: {
     width: 130,
     borderRadius: 25,
-    backgroundColor: '#000000'
+    backgroundColor: '#fff'
   },
   tournamenttext: {
     fontSize: 12,
     textAlign: 'center',
-    color: '#ffffff'
+    color: '#000'
   },
   button: {
     width: 230,
@@ -1442,4 +1452,4 @@ top:20
   backgroundWhite: {
     backgroundColor: 'white'
   }
-};
+})

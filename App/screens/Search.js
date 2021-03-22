@@ -133,7 +133,7 @@ class Search extends React.Component {
           data={items}
           keyExtractor={(product) => product.name}
           renderItem={product => (
-            <TouchableOpacity onPress={() => navigate('TournamentRsvp', { product })} style={{ width: '50%', height: 150 }}>
+            <TouchableOpacity onPress={() => navigate('TournamentRsvp', { product:product.item })} style={{ width: '50%', height: 150 }}>
               <View style={{ padding: 10, flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
                 <AppImage
                   source={{ uri: product.item.imageSource || `${product.item.imageSource}_small.jpg` }}

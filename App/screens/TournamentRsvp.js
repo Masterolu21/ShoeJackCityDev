@@ -9,7 +9,7 @@ import { ifIphoneX } from 'react-native-iphone-x-helper';
 import { showCustomAlert } from '../utils/index'
 import { showMessage, hideMessage } from "react-native-flash-message";
 import moment from 'moment'
-
+import { isIphoneX } from 'react-native-iphone-x-helper';
 const sizes = [
   '5', '5.5', '6', '6.5', '7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5',
   '11', '11.5', '12', '12.5', '13', '13.5', '14', '14.5', '15', '15.5', '16'
@@ -132,7 +132,10 @@ class TournamentRsvp extends React.Component {
           />
         </TouchableOpacity>
         {/* <View style={{ marginTop: 30 }}></View> */}
-        <View style={{ position: 'absolute', bottom: 30 }}>
+        <View style={{
+          position: 'absolute',
+          bottom: 0
+        }}>
           <FlatList
             style={{ backgroundColor: '#000000f2', }}
             showsHorizontalScrollIndicator={false}
@@ -145,6 +148,7 @@ class TournamentRsvp extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: 80,
+                  paddingBottom: isIphoneX() ? 40 : 20
                 }}
                 onPress={() => { this.setState({ selectedSize: size }) }}
               >

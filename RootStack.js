@@ -24,6 +24,10 @@ const routes = {
     SignInScreen: {
         screen: SignInScreen
     },
+    Home: {
+        screen: Account
+        // For now, let's use account screen for Home
+    },
     Account: {
         screen: Account
     },

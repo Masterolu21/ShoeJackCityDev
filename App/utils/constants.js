@@ -4,6 +4,7 @@ export const TOURNAMENT = 'Tournament';
 export const SHOP = 'Shop';
 export const GAME = 'Game';
 export const SEARCH = 'Search';
+export const HOME = 'Home';
 export const EMAIL_ALERT = 'Email address is empty or invalid.';
 export const PASSWORD_ALERT = 'Password must be 6-15 characters long.';
 export const PASSWORD_MESSAGE = 'Password cannot be longer than 15 characters.';

@@ -19,61 +19,62 @@ function cacheImages(images) {
     if (typeof image === 'string') {
       return Image.prefetch(image);
     }
-      return Asset.fromModule(image).downloadAsync();
+    return Asset.fromModule(image).downloadAsync();
   });
 }
 
 export default class App extends React.Component {
-    // Render the app container component with the provider around it
-      constructor(props) {
-        super(props);
-        this.state = {
-          isReady: false
-        };
-      }
+  // Render the app container component with the provider around it
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false
+    };
+  }
 
-      async _loadAssetsAsync() {
-        const imageAssets = cacheImages([
-          require('./assets/images/TemplatePic.jpg'),
-        ]);
+  async _loadAssetsAsync() {
+    const imageAssets = cacheImages([
+      require('./assets/images/TemplatePic.jpg'),
+    ]);
 
-        await Promise.all([...imageAssets]);
-      }
+    await Promise.all([...imageAssets]);
+  }
 
-    render() {
-      //If the state is not ready then display the apploading oterwise display the app
-      console.log(this.state.isReady, '****');
-      if (!this.state.isReady) {
-          return (
-            <AppLoading
-              startAsync={this._loadAssetsAsync}
-              onFinish={() => this.setState({ isReady: true })}
-              onError={console.warn}
-            />
-          );
-        }
+  render() {
+    //If the state is not ready then display the apploading oterwise display the app
+    console.log(this.state.isReady, '****');
+    if (!this.state.isReady) {
       return (
-        <View style={styles.background}>
-          <Provider store={store}>
-            {/* <LoginScreen navigation={{ navigate: () => {} }} /> */}
-            <RootStack/>
-          </Provider>
-          <FlashMessage position="top" />
-        </View>
+        <AppLoading
+          startAsync={this._loadAssetsAsync}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
       );
     }
-    }
+    return (
+      <View style={styles.background}>
+        <Provider store={store}>
+          {/* <LoginScreen navigation={{ navigate: () => {} }} /> */}
+          <RootStack />
+        </Provider>
+        <FlashMessage position="top" />
+      </View>
+    );
+  }
+}
 
-    const styles = StyleSheet.create({
-      background: {
-        flex: 1,
-        backgroundColor: '#FFFFFF',
-        justifyContent: 'center',
-        fontSize: 16
-      },
-      textStyle: {
-      }
-    });
+console.disableYellowBox = true
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    fontSize: 16
+  },
+  textStyle: {
+  }
+});
 //   render() {
 //     return (
 //       <View style={{ flex: 1 }}>
